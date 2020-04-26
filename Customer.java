@@ -4,7 +4,7 @@ public class Customer {
     private String name;
     private Checking checking;
     private Saving saving;
-    private Securities securities;
+    private Security security;
 
     public Customer(int m, String n){
         money = m;
@@ -18,5 +18,9 @@ public class Customer {
     public void makeCheckingAccount(double cash){
         this.checking = new Checking(cash);
     }
+
+    public void buyStock(){}
+
+    public void sellStock(){}
 
 }
