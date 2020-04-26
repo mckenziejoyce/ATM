@@ -1,14 +1,14 @@
+import java.util.ArrayList;
 
 public class Customer {
-    private double money;
     private String name;
     private Checking checking;
     private Saving saving;
-    private Security security;
+    private ArrayList<String> transactions;
 
-    public Customer(int m, String n){
-        money = m;
+    public Customer(String n){
         name = n;
+        transactions = new ArrayList<String>();
     }
 
     public void makeSavingAccount(double cash){
@@ -19,8 +19,20 @@ public class Customer {
         this.checking = new Checking(cash);
     }
 
-    public void buyStock(){}
+    public void savingWithdraw(int amount){
+        this.saving.withdraw(amount);
+    }
 
-    public void sellStock(){}
+    public void savingdeposit(int amount){
+        this.saving.deposit(amount);
+    }
+
+    public void checkingWithdraw(int amount){
+        this.checking.withdraw(amount);
+    }
+
+    public void checkingdeposit(int amount){
+        this.checking.deposit(amount);
+    }
 
 }
