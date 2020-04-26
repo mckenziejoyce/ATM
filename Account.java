@@ -5,7 +5,7 @@ public class Account{
         money = m;
     }
 
-    public double getMoney(){
+    public double getBalance(){
         return money;
     }
 
