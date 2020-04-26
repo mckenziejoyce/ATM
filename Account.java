@@ -9,11 +9,11 @@ public class Account{
         return money;
     }
 
-    public void withdraw(int amount){
+    public void withdraw(double amount){
         money -= amount;
     }
 
-    public void deposit(int amount){
+    public void deposit(double amount){
         money += amount;
     }
 }

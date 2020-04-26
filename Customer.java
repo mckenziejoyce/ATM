@@ -19,20 +19,24 @@ public class Customer {
         this.checking = new Checking(cash);
     }
 
-    public void savingWithdraw(int amount){
+    public void savingWithdraw(double amount){
         this.saving.withdraw(amount);
+        this.transactions.add("Savings -" + amount);
     }
 
-    public void savingdeposit(int amount){
+    public void savingdeposit(double amount){
         this.saving.deposit(amount);
+        this.transactions.add("Savings +" + amount);
     }
 
-    public void checkingWithdraw(int amount){
+    public void checkingWithdraw(double amount){
         this.checking.withdraw(amount);
+        this.transactions.add("Checking -" + amount);
     }
 
-    public void checkingdeposit(int amount){
+    public void checkingdeposit(double amount){
         this.checking.deposit(amount);
+        this.transactions.add("Checking +" + amount);
     }
 
 }
