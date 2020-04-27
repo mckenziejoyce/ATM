@@ -17,13 +17,33 @@ public class RichCustomer extends Customer{
         unrealized = u;
     }
 
-    public void securityWithdraw(int amount){
+    //Create the Security account by transferring money
+    //or transfer money to already existing account
+    public void transferSecurity(double amount, String account){
+        if(this.security == null){
+            this.security = new Security(amount);
+        }
+        else{
+            this.securityDeposit(amount);
+        }
+
+        if(account.equals("s")){
+            this.savingWithdraw(amount);
+        }
+        else if(account.equals("c")){
+            this.checkingWithdraw(amount);
+        }
+    }
+
+    //Withdraw money from their Security Account
+    public void securityWithdraw(double amount){
         this.checking.withdraw(amount);
         this.realized -= amount;
         this.transactions.add("Savings -" + amount);
     }
 
-    public void securitydeposit(int amount){
+    //Deposit money into their security account
+    public void securityDeposit(double amount){
         this.checking.deposit(amount);
         this.realized += amount;
         this.transactions.add("Savings -" + amount);

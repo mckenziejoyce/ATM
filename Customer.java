@@ -4,10 +4,10 @@ public class Customer {
     private String name;
     private Checking checking;
     private Saving saving;
-    private ArrayList<String> transactions;
+    private ArrayList<String> transactions; 
     private double realized; //Realized profit
     private double unrealized; //Unrealized profit
-    private double loan;
+    private double loan; //The loan still left for the customer to pay
 
     public Customer(String n){
         name = n;
@@ -102,6 +102,17 @@ public class Customer {
                 this.checkingWithdraw(amount);
             }
         }
+    }
+
+    //Returns a string of transactions
+    public String getTransactions(){
+        String ret = "";
+
+        for(int i=0; i<this.transactions.size(); i++){
+            ret += this.transactions.get(i);
+        }
+        
+        return ret;
     }
 
 }
