@@ -1,12 +1,7 @@
 import java.util.ArrayList;
 
 public class RichCustomer extends Customer{
-    private Checking checking;
-    private Saving saving;
     private Security security;
-    private ArrayList<String> transactions;
-    private double realized;
-    private double unrealized;
 
     public RichCustomer(String n, Checking c, Saving s, double r, double u, ArrayList<String> t){
         super(n);

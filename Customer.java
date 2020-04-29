@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class Customer {
-    private String name;
-    private Checking checking;
-    private Saving saving;
-    private ArrayList<String> transactions; 
-    private double realized; //Realized profit
-    private double unrealized; //Unrealized profit
-    private double loan; //The loan still left for the customer to pay
+    protected String name;
+    protected Checking checking;
+    protected  Saving saving;
+    protected  ArrayList<String> transactions; 
+    protected  double realized; //Realized profit
+    protected  double unrealized; //Unrealized profit
+    protected  double loan; //The loan still left for the customer to pay
 
     public Customer(String n){
         name = n;
