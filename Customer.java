@@ -29,13 +29,13 @@ public class Customer {
     }
 
     //Customer creates a Savings account
-    public void makeSavingAccount(double cash){
-        this.saving = new Saving(cash);
+    public void makeSavingAccount(double cash, String cur){
+        this.saving = new Saving(cash, cur);
     }
 
     //Customer creates a Checkings account
-    public void makeCheckingAccount(double cash){
-        this.checking = new Checking(cash);
+    public void makeCheckingAccount(double cash, String cur){
+        this.checking = new Checking(cash, cur);
     }
 
     //Withdrawal from the savings account

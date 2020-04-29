@@ -1,8 +1,8 @@
 
 public class Saving extends Account{
 
-    public Saving(double money){
-        super(money);
+    public Saving(double money, String cur){
+        super(money, cur);
     }
 
 }

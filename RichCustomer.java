@@ -19,9 +19,9 @@ public class RichCustomer extends Customer{
 
     //Create the Security account by transferring money
     //or transfer money to already existing account
-    public void transferSecurity(double amount, String account){
+    public void transferSecurity(double amount, String cur, String account){
         if(this.security == null){
-            this.security = new Security(amount);
+            this.security = new Security(amount, cur);
         }
         else{
             this.securityDeposit(amount);
