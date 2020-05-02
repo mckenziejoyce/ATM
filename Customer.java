@@ -38,43 +38,45 @@ public class Customer {
         this.checking = new Checking(cash, cur);
     }
 
-    //Withdrawal from the savings account
-    public void savingWithdraw(double amount){
-        this.saving.withdraw(amount);
-        this.realized -= amount;
-        this.transactions.add("Savings -" + amount);
+    //Withdrawal from one of the accounts "s" for
+    //the savings account and "c" for checking
+    public void withdraw(double amount, String account){
+        if(account.equals("s")){
+            this.saving.withdraw(amount);
+            this.realized -= amount;
+            this.transactions.add("Savings -" + amount);
+        }
+        else if(account.equals("c")){
+            this.checking.withdraw(amount);
+            this.realized -= amount;
+            this.transactions.add("Checking -" + amount);
+        }
     }
 
-    //Deposit from the savings account
-    public void savingdeposit(double amount){
-        this.saving.deposit(amount);
-        this.realized += amount;
-        this.transactions.add("Savings +" + amount);
-    }
-
-    //Withdrawal from the checkings account
-    public void checkingWithdraw(double amount){
-        this.checking.withdraw(amount);
-        this.realized -= amount;
-        this.transactions.add("Checking -" + amount);
-    }
-
-    //Deposit from the checkings account
-    public void checkingDeposit(double amount){
-        this.checking.deposit(amount);
-        this.realized += amount;
-        this.transactions.add("Checking +" + amount);
+    //Deposit from one of the accounts "s" for
+    //the savings account and "c" for checking
+    public void deposit(double amount, String account){
+        if(account.equals("s")){
+            this.saving.deposit(amount);
+            this.realized += amount;
+            this.transactions.add("Savings +" + amount);
+        }
+        else if(account.equals("c")){
+            this.checking.deposit(amount);
+            this.realized += amount;
+            this.transactions.add("Checking +" + amount);
+        }
     }
 
     //Taking out a loan
     public void applyLoan(double amount, double interest, String account){
         if(account.equals("s")){
             this.loan = new Loan(amount, interest);
-            this.savingdeposit(amount);
+            this.deposit(amount, account);
         }
         else if(account.equals("c")){
             this.loan = new Loan(amount, interest);
-            this.checkingDeposit(amount);
+            this.deposit(amount, account);
         }
     }
 
@@ -86,20 +88,20 @@ public class Customer {
 
         if(account.equals("s")){
             if(this.loan.getMoney() < 0){
-                this.savingWithdraw(amount + this.loan.getMoney());
+                this.withdraw(amount + this.loan.getMoney(), account);
                 this.loan = null;
             }
             else{
-                this.savingWithdraw(amount);
+                this.withdraw(amount, account);
             }
         }
         else if(account.equals("c")){
             if(this.loan.getMoney() < 0){
-                this.checkingWithdraw(amount + this.loan.getMoney());
+                this.withdraw(amount + this.loan.getMoney(), account);
                 this.loan = null;
             }
             else{
-                this.checkingWithdraw(amount);
+                this.withdraw(amount, account);
             }
         }
     }

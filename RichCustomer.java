@@ -22,12 +22,7 @@ public class RichCustomer extends Customer{
             this.securityDeposit(amount);
         }
 
-        if(account.equals("s")){
-            this.savingWithdraw(amount);
-        }
-        else if(account.equals("c")){
-            this.checkingWithdraw(amount);
-        }
+        this.withdraw(amount, account);
     }
 
     //Withdraw money from their Security Account
