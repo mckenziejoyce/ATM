@@ -27,4 +27,16 @@ public class Loan {
         money -= m;
     }
 
+    public boolean monthPass(){
+        Calendar newDate = Calendar.getInstance();
+
+        if(this.date.get(Calendar.MONTH) < newDate.get(Calendar.MONTH) && this.date.get(Calendar.DATE) <= newDate.get(Calendar.DATE)){
+            this.date = newDate;
+            return true;
+        }
+        else{ 
+            return false;
+        }
+    }
+
 }

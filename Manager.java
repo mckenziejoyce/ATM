@@ -21,4 +21,17 @@ public class Manager {
     public void accountFee(double fee){
         this.money +=  fee;
     }
+
+    //Increases all the customer loans after a month passes
+    public void increaseLoans(){
+        int len = this.customers.length;
+        
+        for(int i = 0; i<len; i++){
+            Loan loan = this.customers[i].getLoan();
+
+            if(loan.monthPass()){
+                loan.increaseLoan();;
+            }
+        }
+    }
 }

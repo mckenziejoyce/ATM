@@ -3,11 +3,11 @@ import java.util.ArrayList;
 public class Customer {
     protected String name;
     protected Checking checking;
-    protected  Saving saving;
-    protected  ArrayList<String> transactions; 
-    protected  double realized; //Realized profit
-    protected  double unrealized; //Unrealized profit
-    protected  Loan loan; //The loan still left for the customer to pay
+    protected Saving saving;
+    protected ArrayList<String> transactions; 
+    protected double realized; //Realized profit
+    protected double unrealized; //Unrealized profit
+    protected Loan loan; //The loan still left for the customer to pay
 
     public Customer(String n){
         name = n;
