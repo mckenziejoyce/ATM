@@ -117,4 +117,24 @@ public class Customer {
         return ret;
     }
 
+    //Returns a string with the info of all the accounts and
+    //loan balances
+    public String accountInfo(){
+        String ret = "";
+
+        if(this.checking != null){
+            ret += ("Checking " + this.name + " - " + "Balance " + checking.getBalance()+"/n");
+        }
+
+        if(this.saving != null){
+            ret += ("Checking " + this.name + " - " + "Balance " + saving.getBalance()+"/n");
+        }
+
+        if(this.loan != null){
+            ret += ("Loan " + " - " + "Balance " + loan.getMoney()+"/n");
+        }
+
+        return ret;
+    }
+
 }
