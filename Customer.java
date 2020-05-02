@@ -7,7 +7,7 @@ public class Customer {
     protected  ArrayList<String> transactions; 
     protected  double realized; //Realized profit
     protected  double unrealized; //Unrealized profit
-    protected  double loan; //The loan still left for the customer to pay
+    protected  Loan loan; //The loan still left for the customer to pay
 
     public Customer(String n){
         name = n;
@@ -16,7 +16,7 @@ public class Customer {
         unrealized = 0;
     }
 
-    public double getLoan(){
+    public Loan getLoan(){
         return loan;
     }
 
@@ -53,8 +53,8 @@ public class Customer {
     }
 
     //Taking out a loan from the savings account
-    public void savingLoan(double amount){
-        this.loan += amount;
+    public void savingLoan(double amount, double interest){
+        this.loan = new Loan(amount, interest);
         this.savingdeposit(amount);
     }
 
@@ -73,8 +73,8 @@ public class Customer {
     }
 
     //Taking out a loan from the checkings account
-    public void checkingLoan(double amount){
-        this.loan += amount;
+    public void checkingLoan(double amount, double interest){
+        this.loan = new Loan(amount, interest);
         this.checkingDeposit(amount);
     }
 
@@ -82,21 +82,21 @@ public class Customer {
     //string is s then the money comes out of the
     //Savings account while c is checking account
     public void payLoan(double amount, String account){
-        this.loan -= amount;
+        this.loan.decreaseLoan(amount);
 
         if(account.equals("s")){
-            if(this.loan < 0){
-                this.savingWithdraw(amount + this.loan);
-                this.loan = 0;
+            if(this.loan.getMoney() < 0){
+                this.savingWithdraw(amount + this.loan.getMoney());
+                this.loan = null;
             }
             else{
                 this.savingWithdraw(amount);
             }
         }
         else if(account.equals("c")){
-            if(this.loan < 0){
-                this.checkingWithdraw(amount + this.loan);
-                this.loan = 0;
+            if(this.loan.getMoney() < 0){
+                this.checkingWithdraw(amount + this.loan.getMoney());
+                this.loan = null;
             }
             else{
                 this.checkingWithdraw(amount);
