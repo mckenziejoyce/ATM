@@ -137,4 +137,9 @@ public class Customer {
         return ret;
     }
 
+    //Returns true if a customer is considered rich
+    public boolean isRich(){
+        return this.saving.getBalance() > 5000;
+    }
+
 }
