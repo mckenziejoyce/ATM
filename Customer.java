@@ -52,12 +52,6 @@ public class Customer {
         this.transactions.add("Savings +" + amount);
     }
 
-    //Taking out a loan from the savings account
-    public void savingLoan(double amount, double interest){
-        this.loan = new Loan(amount, interest);
-        this.savingdeposit(amount);
-    }
-
     //Withdrawal from the checkings account
     public void checkingWithdraw(double amount){
         this.checking.withdraw(amount);
@@ -72,10 +66,16 @@ public class Customer {
         this.transactions.add("Checking +" + amount);
     }
 
-    //Taking out a loan from the checkings account
-    public void checkingLoan(double amount, double interest){
-        this.loan = new Loan(amount, interest);
-        this.checkingDeposit(amount);
+    //Taking out a loan
+    public void applyLoan(double amount, double interest, String account){
+        if(account.equals("s")){
+            this.loan = new Loan(amount, interest);
+            this.savingdeposit(amount);
+        }
+        else if(account.equals("c")){
+            this.loan = new Loan(amount, interest);
+            this.checkingDeposit(amount);
+        }
     }
 
     //Paying a portion or the whole loan. If the 

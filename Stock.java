@@ -8,4 +8,12 @@ public class Stock {
         cost = c;
     }
 
+    public double getCost(){
+        return cost;
+    }
+
+    public String getName(){
+        return name;
+    }
+
 }
