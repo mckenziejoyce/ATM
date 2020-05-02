@@ -43,4 +43,13 @@ public class RichCustomer extends Customer{
 
     public void sellStock(){}
 
+    public String accountInfo(){
+        String ret = super.accountInfo();
+
+        if(this.security != null){
+            ret += ("Security " + this.name + " - " + "Balance " + security.getBalance()+"/n");
+        }
+
+        return ret;
+    }
 }
