@@ -10,17 +10,17 @@ import java.awt.event.*;
 public class NewAccountConfirmationScreen{
   private JFrame frame;
 
-  public NewAccountConfirmationScreen(){
+  public NewAccountConfirmationScreen(String account){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel);
+    placeComponents(panel, account);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel){
+  private void placeComponents(JPanel panel, String account){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Open a New Account");
     headerMessage.setBounds(5,5,200,25);
@@ -45,7 +45,18 @@ public class NewAccountConfirmationScreen{
     panel.add(accBalance);
 
     // FIgure out how to pull the real info for this
-    JLabel type = new JLabel("xxxxxxxxxx");
+    JLabel type = new JLabel("");
+
+    if(account.equals("c")){
+      type = new JLabel("Checking");
+    }
+    else if(account.equals("s")){
+      type = new JLabel("Saving");
+    }
+    else if(account.equals("sc")){
+      type = new JLabel("Security");
+    }
+    
     JLabel num = new JLabel("xxxxxxxxxxx");
     JLabel balance = new JLabel("xxxxxxxxxxxx");
     type.setBounds(150,60, 200, 25);

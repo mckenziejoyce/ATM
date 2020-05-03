@@ -34,7 +34,7 @@ public class OpenNewAccountScreen{
     withdrawButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new NewAccountConfirmationScreen();
+        new NewAccountConfirmationScreen("c");
         }});
     panel.add(withdrawButton);
 
@@ -43,7 +43,7 @@ public class OpenNewAccountScreen{
     depositButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new NewAccountConfirmationScreen();
+        new NewAccountConfirmationScreen("s");
         }});
     panel.add(depositButton);
 
