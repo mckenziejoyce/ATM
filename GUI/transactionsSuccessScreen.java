@@ -1,15 +1,12 @@
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.event.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-public class transactionsSuccessScreen{
+public class TransactionsSuccessScreen{
   private JFrame frame;
 
-  public transactionsSuccessScreen(){
+  public TransactionsSuccessScreen(){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,7 +62,7 @@ public class transactionsSuccessScreen{
     yesButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new customerWelcome();
+        new CustomerWelcomeScreen();
         }});
     panel.add(yesButton);
 

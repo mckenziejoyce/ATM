@@ -1,20 +1,17 @@
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.event.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
-public class myATM{
+public class MyATM{
   private JFrame frame;
 
   public static void main(String[] args){
     setUpFrame();
   }
   private static void setUpFrame(){
-    welcomePage firstScreen = new welcomePage();
+    WelcomeScreen firstScreen = new WelcomeScreen();
     firstScreen.setVisible(true);
   }
 }
