@@ -1,14 +1,27 @@
+import java.util.Random;
+
 public class Account{
     private double money;
     private String curr; //Currency for USD, EUR, and JPY
+    private String aNumber; //Account number
     
     public Account(double m, String c){
         money = m;
         curr = c;
+        aNumber = "";
+
+        Random rand = new Random();
+        for(int i =0; i<9; i++){
+            aNumber += rand.nextInt(10);
+        }
     }
 
     public double getBalance(){
         return this.money;
+    }
+
+    public String getAccountNumber(){
+        return aNumber;
     }
 
     public String getCurrency(){

@@ -70,12 +70,12 @@ public class Customer {
 
     //Taking out a loan
     public void applyLoan(double amount, double interest, String account){
+        this.loan = new Loan(amount, interest);
+        this.transactions.add("Apply Loan +" + amount);
         if(account.equals("s")){
-            this.loan = new Loan(amount, interest);
             this.deposit(amount, account);
         }
         else if(account.equals("c")){
-            this.loan = new Loan(amount, interest);
             this.deposit(amount, account);
         }
     }
@@ -104,6 +104,8 @@ public class Customer {
                 this.withdraw(amount, account);
             }
         }
+
+        this.transactions.add("Loan Payment +" + amount);
     }
 
     //Returns a string of transactions
@@ -123,11 +125,11 @@ public class Customer {
         String ret = "";
 
         if(this.checking != null){
-            ret += ("Checking " + this.name + " - " + "Balance " + checking.getBalance()+"/n");
+            ret += ("Checking " + checking.getAccountNumber() + " - " + "Balance " + checking.getBalance()+"/n");
         }
 
         if(this.saving != null){
-            ret += ("Checking " + this.name + " - " + "Balance " + saving.getBalance()+"/n");
+            ret += ("Checking " + saving.getAccountNumber() + " - " + "Balance " + saving.getBalance()+"/n");
         }
 
         if(this.loan != null){

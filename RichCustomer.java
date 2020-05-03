@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class RichCustomer extends Customer{
     private Security security;
+    protected ArrayList<Stock> stocks; 
 
     public RichCustomer(String n, Checking c, Saving s, double r, double u, ArrayList<String> t){
         super(n);
@@ -10,6 +11,7 @@ public class RichCustomer extends Customer{
         transactions = t;
         realized = r;
         unrealized = u;
+        stocks = new ArrayList<Stock>();
     }
 
     //Create the Security account by transferring money
@@ -47,7 +49,7 @@ public class RichCustomer extends Customer{
         String ret = super.accountInfo();
 
         if(this.security != null){
-            ret += ("Security " + this.name + " - " + "Balance " + security.getBalance()+"/n");
+            ret += ("Security " + security.getAccountNumber() + " - " + "Balance " + security.getBalance()+"/n");
         }
 
         return ret;
