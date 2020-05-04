@@ -20,6 +20,14 @@ public class Loan {
         money = m;
     }
 
+    public int getYear(){
+        return this.date.get(Calendar.YEAR);
+    }
+
+    public int getDay(){
+        return this.date.get(Calendar.DATE);
+    }
+
     public String getMonth(){
         int month = this.date.get(Calendar.MONTH);
         String ret = "";

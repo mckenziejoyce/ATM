@@ -67,26 +67,21 @@ public class LoanSuccessScreen {
         panel.add(type);
         panel.add(num);
         panel.add(balance);
-        
-        JLabel lineThree = new JLabel("Your current loan status is:");
-        lineTwo.setBounds(5,45,300,25);
-        panel.add(lineTwo);
 
         JLabel loanAmount = new JLabel("Loan amount left: " + c.getLoan().getMoney());
-        JLabel doa = new JLabel("Date of applying: " + c.getLoan().getMonth());
-        accType.setBounds(30,60, 200, 25);
-        accNum.setBounds(30,75, 200, 25);
-        accBalance.setBounds(30,90, 200, 25);
+        JLabel doa = new JLabel("Date of applying: " + c.getLoan().getMonth() + " " + c.getLoan().getDay() + ", " + c.getLoan().getYear());
+        loanAmount.setBounds(30,115, 200, 25);
+        doa.setBounds(30,130, 200, 25);
         panel.add(loanAmount);
         panel.add(doa);
         
     
         JLabel lineFour = new JLabel("Would you like to continue using the bank app?");
-        lineThree.setBounds(5,115,300,25);
+        lineFour.setBounds(5,160,300,25);
         panel.add(lineFour);
     
         JButton yesButton = new JButton("Yes");
-        yesButton.setBounds(10, 140, 200, 25);
+        yesButton.setBounds(10, 195, 200, 25);
         yesButton.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
             frame.dispose();
@@ -95,7 +90,7 @@ public class LoanSuccessScreen {
         panel.add(yesButton);
     
         JButton noButton = new JButton("No");
-        noButton.setBounds(10, 175, 200, 25);
+        noButton.setBounds(10, 225, 200, 25);
         yesButton.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
             frame.dispose();
