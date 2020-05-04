@@ -48,6 +48,17 @@ public class OpenNewAccountScreen{
         }});
     panel.add(depositButton);
 
+    if(c.getRich()){
+      JButton securityButton = new JButton("Security");
+      securityButton.setBounds(10, 130, 200, 30);
+      securityButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        frame.dispose();
+        new NewAccountConfirmationScreen("sc", c);
+        }});
+      panel.add(securityButton);
+    }
+
     JButton backButton = new JButton("Back");
     backButton.setBounds(330, 35, 100, 50);
     backButton.addActionListener(new ActionListener(){

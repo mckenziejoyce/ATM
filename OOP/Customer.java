@@ -6,12 +6,14 @@ public class Customer {
     protected String name;
     protected Checking checking;
     protected Saving saving;
+    protected Security security;
     protected ArrayList<String> transactions;
     protected ArrayList<Account> accounts;  
     protected double realized; //Realized profit
     protected double unrealized; //Unrealized profit
     protected Loan loan; //The loan still left for the customer to pay
     protected String cur; //Currency 
+    protected boolean rich; //True if the customer is rich
 
     public Customer(String n){
         name = n;
@@ -20,6 +22,10 @@ public class Customer {
         unrealized = 0;
         accounts = new ArrayList<Account>();
         cur = "USD";
+    }
+
+    public String getName(){
+        return name;
     }
 
     public Loan getLoan(){
@@ -46,6 +52,10 @@ public class Customer {
         return accounts;
     }
 
+    public boolean getRich(){
+        return rich;
+    }
+
     public double getRealizedProfit(){
         return realized;
     }
@@ -59,13 +69,13 @@ public class Customer {
     }
 
     //Customer creates a Savings account
-    public void makeSavingAccount(double cash, String cur){
+    public void makeSavingAccount(double cash){
         this.saving = new Saving(cash);
         this.accounts.add(this.saving);
     }
 
     //Customer creates a Checkings account
-    public void makeCheckingAccount(double cash, String cur){
+    public void makeCheckingAccount(double cash){
         this.checking = new Checking(cash);
         this.accounts.add(this.checking);
     }
@@ -122,29 +132,15 @@ public class Customer {
         return transactions;
     }
 
-    //Returns a string with the info of all the accounts and
-    //loan balances
-    public String accountInfo(){
-        String ret = "";
-
-        if(this.checking != null){
-            ret += ("Checking " + checking.getAccountNumber() + " - " + "Balance " + checking.getBalance()+"/n");
-        }
-
-        if(this.saving != null){
-            ret += ("Checking " + saving.getAccountNumber() + " - " + "Balance " + saving.getBalance()+"/n");
-        }
-
-        if(this.loan != null){
-            ret += ("Loan " + " - " + "Balance " + loan.getMoney()+"/n");
-        }
-
-        return ret;
-    }
-
     //Returns true if a customer is considered rich
-    public boolean isRich(){
-        return this.saving.getBalance() > 5000;
+    public void isRich(){
+        for(int i=0; i< this.accounts.size(); i++){
+            Account acc = this.accounts.get(i);
+            if(acc.getType().equals("Savings") && acc.getBalance() >= 5000){
+                this.rich = true;
+            }
+        }
+        
     }
 
     //Converts the the first currency value to the second
@@ -169,5 +165,18 @@ public class Customer {
         }
         return Math.round(amount*100)/100;
     }
+
+    //RICH CUSTOMER FUNCTIONS ################################
+
+    public void makeSecurity(double cash){
+        if(cash > 1000){
+            this.security = new Security(cash);
+            this.accounts.add(this.saving);
+        }
+    }
+
+    public void buyStock(){}
+
+    public void sellStock(){}
 
 }

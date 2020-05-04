@@ -22,6 +22,8 @@ public class CustomerWelcomeScreen{
   }
 
   private void placeComponents(JPanel panel, Customer c){
+    c.isRich(); //Checks if customer is rich to open up options
+    
     panel.setLayout(null);
     JLabel welcomeMessage = new JLabel("Welcome customer!");
     welcomeMessage.setBounds(5,5,200,25);
@@ -84,6 +86,7 @@ public class CustomerWelcomeScreen{
     if(c.getLoan() != null && c.getLoan().monthPass()){
       c.getLoan().increaseLoan();
     }
+
   }
   public void setVisible(boolean bool){
     frame.setVisible(bool);

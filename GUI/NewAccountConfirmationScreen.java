@@ -52,16 +52,18 @@ public class NewAccountConfirmationScreen{
 
     if(account.equals("c")){
       type = new JLabel("Checking");
-      c.makeCheckingAccount(0, "US");
+      c.makeCheckingAccount(0);
       num = new JLabel(c.getChecking().getAccountNumber());
     }
     else if(account.equals("s")){
       type = new JLabel("Saving");
-      c.makeSavingAccount(0, "US");
+      c.makeSavingAccount(0);
       num = new JLabel(c.getSaving().getAccountNumber());
     }
     else if(account.equals("sc")){
       type = new JLabel("Security");
+      c.makeSavingAccount(0);
+      num = new JLabel(c.getSaving().getAccountNumber());
     }
 
     type.setBounds(150,60, 200, 25);
