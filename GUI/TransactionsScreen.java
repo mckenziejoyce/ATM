@@ -35,7 +35,7 @@ public class TransactionsScreen{
     withdrawButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new TransactionsAccountChoiceScreen(c);
+        new TransactionsAccountChoiceScreen(c, "Withdraw");
         }});
     panel.add(withdrawButton);
 
@@ -43,7 +43,7 @@ public class TransactionsScreen{
     depositButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new TransactionsAccountChoiceScreen(c);
+        new TransactionsAccountChoiceScreen(c, "Deposit");
         }});
     depositButton.setBounds(10, 100, 200, 30);
     panel.add(depositButton);

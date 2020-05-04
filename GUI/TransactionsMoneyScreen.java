@@ -12,24 +12,24 @@ import java.awt.event.*;
 public class TransactionsMoneyScreen{
   private JFrame frame;
 
-  public TransactionsMoneyScreen(Customer c){
+  public TransactionsMoneyScreen(Customer c, String aNumber, String action){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c);
+    placeComponents(panel, c, aNumber, action);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c){
+  private void placeComponents(JPanel panel, Customer c, String aNumber, String action){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Transactions");
     headerMessage.setBounds(5,5,200,25);
     panel.add(headerMessage);
 
     // Figure out how to pull this information
-    JLabel lineOne = new JLabel("You chose account _______");
+    JLabel lineOne = new JLabel("You chose account " + aNumber);
     lineOne.setBounds(5,25,300,25);
     panel.add(lineOne);
 
@@ -44,10 +44,11 @@ public class TransactionsMoneyScreen{
     panel.add(accNum);
     panel.add(accBalance);
 
+    Account curAccount = c.getAccounts().get(Integer.parseInt(aNumber) - 1);
     // FIgure out how to pull the real info for this
-    JLabel type = new JLabel("xxxxxxxxxx");
-    JLabel num = new JLabel("xxxxxxxxxxx");
-    JLabel balance = new JLabel("xxxxxxxxxxxx");
+    JLabel type = new JLabel(curAccount.getType());
+    JLabel num = new JLabel(curAccount.getAccountNumber());
+    JLabel balance = new JLabel(Double.toString(curAccount.getBalance()));
     type.setBounds(150,40, 200, 25);
     num.setBounds(150,55, 200, 25);
     balance.setBounds(150,70, 200, 25);
@@ -55,7 +56,7 @@ public class TransactionsMoneyScreen{
     panel.add(num);
     panel.add(balance);
 
-    JLabel lineTwo = new JLabel("Enter the amount you wish to withdraw/deposit");
+    JLabel lineTwo = new JLabel("Enter the amount you wish to " + action);
     lineTwo.setBounds(5,95,300,25);
     panel.add(lineTwo);
 
@@ -68,7 +69,7 @@ public class TransactionsMoneyScreen{
     submitButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new TransactionsSuccessScreen(c);
+        new TransactionsSuccessScreen(c, aNumber, userText.getText(), action);
         }});
     panel.add(submitButton);
 
