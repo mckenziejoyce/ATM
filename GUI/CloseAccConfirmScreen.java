@@ -18,11 +18,11 @@ public class CloseAccConfirmScreen{
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c);
+    placeComponents(panel, c, numOfAccountToClose);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c){
+  private void placeComponents(JPanel panel, Customer c, int aNumber){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Close a Current Account");
     headerMessage.setBounds(5,5,200,25);
@@ -46,13 +46,14 @@ public class CloseAccConfirmScreen{
     panel.add(accNum);
     panel.add(accBalance);
 
+    Account curAccount = c.getAccounts().get(aNumber - 1);
     // FIgure out how to pull the real info for this
-    JLabel type = new JLabel("xxxxxxxxxx");
-    JLabel num = new JLabel("xxxxxxxxxxx");
-    JLabel balance = new JLabel("xxxxxxxxxxxx");
-    type.setBounds(150,60, 200, 25);
-    num.setBounds(150,75, 200, 25);
-    balance.setBounds(150,90, 200, 25);
+    JLabel type = new JLabel(curAccount.getType());
+    JLabel num = new JLabel(curAccount.getAccountNumber());
+    JLabel balance = new JLabel(Double.toString(curAccount.getBalance()));
+    type.setBounds(150,40, 200, 25);
+    num.setBounds(150,55, 200, 25);
+    balance.setBounds(150,70, 200, 25);
     panel.add(type);
     panel.add(num);
     panel.add(balance);
@@ -70,7 +71,7 @@ public class CloseAccConfirmScreen{
     confirmButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CloseAccSuccessScreen(c);
+        new CloseAccSuccessScreen(c, aNumber);
         }});
     panel.add(confirmButton);
 

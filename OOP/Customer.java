@@ -59,6 +59,11 @@ public class Customer {
         this.accounts.add(this.checking);
     }
 
+    //Closes account
+    public void closeAccount(int account){
+        this.accounts.remove(account);
+    }
+
     //Withdrawal from one of the accounts "s" for
     //the savings account and "c" for checking
     public void withdraw(double amount, String account){

@@ -34,7 +34,7 @@ public class CloseAccountScreen{
 
     int y = 25;
     //Figure out how to get the real number for this
-    int numOfAccounts = 2;
+    int numOfAccounts = c.numOfAccounts();
     int i = 0;
     while(i < numOfAccounts){
       y += 15;
@@ -45,7 +45,7 @@ public class CloseAccountScreen{
       y += 15;
       JLabel accType = new JLabel("Account type:");
       accType.setBounds(30,y, 200, 25);
-      JLabel type = new JLabel("xxxxxxxxxx");
+      JLabel type = new JLabel(c.getAccounts().get(i).getType());
       type.setBounds(150,y, 200, 25);
       panel.add(accType);
       panel.add(type);
@@ -53,14 +53,14 @@ public class CloseAccountScreen{
       JLabel accNum = new JLabel("Account number:");
       accNum.setBounds(30,y, 200, 25);
       panel.add(accNum);
-      JLabel num = new JLabel("xxxxxxxxxxx");
+      JLabel num = new JLabel(c.getAccounts().get(i).getAccountNumber());
       num.setBounds(150,y, 200, 25);
       panel.add(num);
       y += 15;
       JLabel accBalance = new JLabel("Account balance:");
       accBalance.setBounds(30,y, 200, 25);
       panel.add(accBalance);
-      JLabel balance = new JLabel("xxxxxxxxxxxx");
+      JLabel balance = new JLabel(Double.toString(c.getAccounts().get(i).getBalance()));
       balance.setBounds(150,y, 200, 25);
       panel.add(balance);
       y += 10;
