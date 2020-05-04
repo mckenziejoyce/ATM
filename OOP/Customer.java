@@ -95,43 +95,15 @@ public class Customer {
     }
 
     //Taking out a loan
-    public void applyLoan(double amount, double interest, String account){
+    public void applyLoan(double amount, double interest){
         this.loan = new Loan(amount, interest);
-        this.transactions.add("Apply Loan +" + amount);
-        if(account.equals("s")){
-            this.deposit(amount, account);
-        }
-        else if(account.equals("c")){
-            this.deposit(amount, account);
-        }
     }
 
     //Paying a portion or the whole loan. If the 
     //string is s then the money comes out of the
     //Savings account while c is checking account
-    public void payLoan(double amount, String account){
+    public void payLoan(double amount){
         this.loan.decreaseLoan(amount);
-
-        if(account.equals("s")){
-            if(this.loan.getMoney() < 0){
-                this.withdraw(amount + this.loan.getMoney(), account);
-                this.loan = null;
-            }
-            else{
-                this.withdraw(amount, account);
-            }
-        }
-        else if(account.equals("c")){
-            if(this.loan.getMoney() < 0){
-                this.withdraw(amount + this.loan.getMoney(), account);
-                this.loan = null;
-            }
-            else{
-                this.withdraw(amount, account);
-            }
-        }
-
-        this.transactions.add("Loan Payment +" + amount);
     }
 
     //Returns a string of transactions

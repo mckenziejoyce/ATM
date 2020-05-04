@@ -49,8 +49,13 @@ public class CustomerWelcomeScreen{
         }});
     panel.add(accManButton);
 
-    JButton loanButton = new JButton("Apply for a loan");
+    JButton loanButton = new JButton("Loan Options");
     loanButton.setBounds(10, 130, 200, 30);
+    loanButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        frame.dispose();
+        new LoanScreen(c);
+        }});
     panel.add(loanButton);
 
     JButton stocksButton = new JButton("Trade Stocks and Security");
