@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import java.awt.event.*;
 
 public class MonthlyTransactionsScreen{
@@ -30,38 +31,58 @@ public class MonthlyTransactionsScreen{
     panel.add(headerMessage);
     y+= 10;
     // Get real number
-    int numOfTransactions = 2;
+    int numOfTransactions = c.numOfAccounts();
     int i = 0;
     while(i < numOfTransactions){
       y += 15;
-      String trans = "Transaction "+(i+1)+":";
-      JLabel transLabel = new JLabel(trans);
-      transLabel.setBounds(19,y,200,25);
-      panel.add(transLabel);
+      String acc = "Account "+(i+1)+":";
+      JLabel accLabel = new JLabel(acc);
+      accLabel.setBounds(19,y,200,25);
+      panel.add(accLabel);
       y += 15;
-      JLabel transType = new JLabel("Transaction type:");
-      transType.setBounds(30,y, 200, 25);
-      JLabel type = new JLabel("xxxxxxxxxx");
+      JLabel accType = new JLabel("Account type:");
+      accType.setBounds(30,y, 200, 25);
+      JLabel type = new JLabel(c.getAccounts().get(i).getType());
       type.setBounds(150,y, 200, 25);
-      panel.add(transType);
+      panel.add(accType);
       panel.add(type);
       y += 15;
-      JLabel transAcc = new JLabel("Account Involved:");
-      transAcc.setBounds(30,y, 200, 25);
-      JLabel account = new JLabel("xxxxxxxxxx");
-      account.setBounds(150,y, 200, 25);
-      panel.add(transAcc);
-      panel.add(account);
+      JLabel accNum = new JLabel("Account number:");
+      accNum.setBounds(30,y, 200, 25);
+      panel.add(accNum);
+      JLabel num = new JLabel(c.getAccounts().get(i).getAccountNumber());
+      num.setBounds(150,y, 200, 25);
+      panel.add(num);
       y += 15;
-      JLabel transDate = new JLabel("Date:");
-      transDate.setBounds(30,y, 200, 25);
-      JLabel date = new JLabel("xx/xx/xxxx");
-      date.setBounds(150,y, 200, 25);
-      panel.add(transDate);
-      panel.add(date);
+      JLabel accBalance = new JLabel("Account balance:");
+      accBalance.setBounds(30,y, 200, 25);
+      panel.add(accBalance);
+      JLabel balance = new JLabel(Double.toString(c.getAccounts().get(i).getBalance()));
+      balance.setBounds(150,y, 200, 25);
+      panel.add(balance);
       y += 10;
       i++;
     }
+
+    JLabel lineTwo = new JLabel("Enter the account number you want to use");
+    lineTwo.setBounds(5,y,300,25);
+    panel.add(lineTwo);
+
+    y += 20;
+    JTextField userText = new JTextField(50);
+    userText.setBounds(5,y,165,25);
+    panel.add(userText);
+
+    y += 30;
+    JButton submitButton = new JButton("Submit");
+    submitButton.setBounds(40, y, 100, 25);
+    submitButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        frame.dispose();
+        new MonthlyTransactionsSuccessScreen(c, Integer.parseInt(userText.getText()));
+        }});
+    panel.add(submitButton);
+
     JButton backButton = new JButton("Back");
     backButton.setBounds(300, 35, 130, 50);
     backButton.addActionListener(new ActionListener(){

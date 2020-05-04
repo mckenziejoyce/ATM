@@ -48,9 +48,11 @@ public class TransactionsSuccessScreen{
 
     if(action.equals("Withdraw")){
       curAccount.withdraw(Double.valueOf(money));
+      c.getTransactions().add(curAccount.getType() + " withdraw: -" + money);
     }
     else if(action.equals("Deposit")){
       curAccount.deposit(Double.valueOf(money));
+      c.getTransactions().add(curAccount.getType() + " deposit: +" + money);
     }
     // FIgure out how to pull the real info for this
     JLabel type = new JLabel(curAccount.getType());

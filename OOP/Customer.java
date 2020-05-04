@@ -135,14 +135,8 @@ public class Customer {
     }
 
     //Returns a string of transactions
-    public String getTransactions(){
-        String ret = "";
-
-        for(int i=0; i<this.transactions.size(); i++){
-            ret += this.transactions.get(i);
-        }
-        
-        return ret;
+    public ArrayList<String> getTransactions(){
+        return transactions;
     }
 
     //Returns a string with the info of all the accounts and
