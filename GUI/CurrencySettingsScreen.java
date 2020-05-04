@@ -41,7 +41,7 @@ public class CurrencySettingsScreen{
 
     // Figure out how to fill this in
     y+= 15;
-    JLabel curCurr = new JLabel("XXXXXXXXXXXX");
+    JLabel curCurr = new JLabel(c.getCurrency());
     curCurr.setBounds(15,y,300,25);
     panel.add(curCurr);
 
@@ -56,29 +56,50 @@ public class CurrencySettingsScreen{
     currOneButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        // FIGURE OUT HOW TO UPDATE CURRENCY
+      
+        int i = 0;
+        while(i<c.getAccounts().size()){
+          Account curAccount = c.getAccounts().get(i);
+          curAccount.setBalance(Customer.exchangeRate(c.getCurrency(), "USD", curAccount.getBalance()));
+          i++;
+        }
+        c.changeCurrency("USD");
         new CustomerWelcomeScreen(c);
         }});
     panel.add(currOneButton);
 
     y+= 30;
-    JButton currTwoButton = new JButton("Currency 2");
+    JButton currTwoButton = new JButton("EUR");
     currTwoButton.setBounds(15, y, 150, 25);
     currTwoButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        // FIGURE OUT HOW TO UPDATE CURRENCY
+        
+        int i = 0;
+        while(i<c.getAccounts().size()){
+          Account curAccount = c.getAccounts().get(i);
+          curAccount.setBalance(Customer.exchangeRate(c.getCurrency(), "EUR", curAccount.getBalance()));
+          i++;
+        }
+        c.changeCurrency("EUR");
         new CustomerWelcomeScreen(c);
         }});
     panel.add(currTwoButton);
 
     y+= 30;
-    JButton currThreeButton = new JButton("Currency 3");
+    JButton currThreeButton = new JButton("JPY");
     currThreeButton.setBounds(15, y, 150, 25);
     currThreeButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        // FIGURE OUT HOW TO UPDATE CURRENCY
+
+        int i = 0;
+        while(i<c.getAccounts().size()){
+          Account curAccount = c.getAccounts().get(i);
+          curAccount.setBalance(Customer.exchangeRate(c.getCurrency(), "JPY", curAccount.getBalance()));
+          i++;
+        }
+        c.changeCurrency("JPY");
         new CustomerWelcomeScreen(c);
         }});
     panel.add(currThreeButton);
@@ -88,7 +109,6 @@ public class CurrencySettingsScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        // FIGURE OUT HOW TO UPDATE CURRENCY
         new CustomerWelcomeScreen(c);
         }});
     panel.add(backButton);
