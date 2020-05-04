@@ -68,7 +68,7 @@ public class TransactionsMoneyScreen{
     submitButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new TransactionsSuccessScreen();
+        new TransactionsSuccessScreen(c);
         }});
     panel.add(submitButton);
 

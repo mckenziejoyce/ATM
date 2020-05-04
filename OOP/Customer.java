@@ -5,7 +5,8 @@ public class Customer {
     protected String name;
     protected Checking checking;
     protected Saving saving;
-    protected ArrayList<String> transactions; 
+    protected ArrayList<String> transactions;
+    protected ArrayList<Account> accounts;  
     protected double realized; //Realized profit
     protected double unrealized; //Unrealized profit
     protected Loan loan; //The loan still left for the customer to pay
@@ -13,10 +14,9 @@ public class Customer {
     public Customer(String n){
         name = n;
         transactions = new ArrayList<String>();
-        checking = null;
-        saving = null;
         realized = 0;
         unrealized = 0;
+        accounts = new ArrayList<Account>();
     }
 
     public Loan getLoan(){
@@ -31,6 +31,10 @@ public class Customer {
         return checking;
     }
 
+    public ArrayList<Account> getAccounts(){
+        return accounts;
+    }
+
     public double getRealizedProfit(){
         return realized;
     }
@@ -39,14 +43,20 @@ public class Customer {
         return unrealized;
     }
 
+    public int numOfAccounts(){
+        return this.accounts.size();
+    }
+
     //Customer creates a Savings account
     public void makeSavingAccount(double cash, String cur){
         this.saving = new Saving(cash, cur);
+        this.accounts.add(this.saving);
     }
 
     //Customer creates a Checkings account
     public void makeCheckingAccount(double cash, String cur){
         this.checking = new Checking(cash, cur);
+        this.accounts.add(this.checking);
     }
 
     //Withdrawal from one of the accounts "s" for

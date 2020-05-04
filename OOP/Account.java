@@ -6,11 +6,13 @@ public class Account{
     private double money;
     private String curr; //Currency for USD, EUR, and JPY
     private String aNumber; //Account number
+    protected String type;
     
     public Account(double m, String c){
         money = m;
         curr = c;
         aNumber = "";
+        type = "Account";
 
         Random rand = new Random();
         for(int i =0; i<9; i++){
@@ -28,6 +30,10 @@ public class Account{
 
     public String getCurrency(){
         return this.curr;
+    }
+
+    public String getType(){
+        return type;
     }
 
     public void withdraw(double amount){
