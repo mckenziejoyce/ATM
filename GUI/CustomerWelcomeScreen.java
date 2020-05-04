@@ -79,6 +79,11 @@ public class CustomerWelcomeScreen{
         new WelcomeScreen(c);
         }});
     panel.add(logoutButton);
+
+    //Checks if month has passed to increase the loan
+    if(c.getLoan() != null && c.getLoan().monthPass()){
+      c.getLoan().increaseLoan();
+    }
   }
   public void setVisible(boolean bool){
     frame.setVisible(bool);

@@ -73,11 +73,11 @@ public class Loan {
     }
 
     public void increaseLoan(){
-        money += money*interest;
+        this.money += this.money*interest;
     }
 
     public void decreaseLoan(double m){
-        money -= m;
+        this.money -= m;
     }
 
     public boolean monthPass(){

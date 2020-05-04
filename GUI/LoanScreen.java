@@ -51,6 +51,15 @@ public class LoanScreen {
             }});
         payButton.setBounds(10, 100, 200, 30);
         panel.add(payButton);
+
+        JButton statusButton = new JButton("Loan status");
+        statusButton.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            frame.dispose();
+            new LoanStatusScreen(c);
+            }});
+        statusButton.setBounds(10, 130, 200, 30);
+        panel.add(statusButton);
     
         JButton backButton = new JButton("Back");
         backButton.setBounds(300, 35, 130, 50);
