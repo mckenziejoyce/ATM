@@ -25,7 +25,7 @@ public class CustomerWelcomeScreen{
     c.isRich(); //Checks if customer is rich to open up options
 
     panel.setLayout(null);
-    JLabel welcomeMessage = new JLabel("Welcome customer!");
+    JLabel welcomeMessage = new JLabel("Welcome " + c.getName() + "!");
     welcomeMessage.setBounds(5,5,200,25);
     panel.add(welcomeMessage);
 

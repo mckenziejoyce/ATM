@@ -73,7 +73,7 @@ public class NewAccountConfirmationScreen{
     panel.add(num);
     panel.add(balance);
 
-    JLabel lineThree = new JLabel("You will be charged a fee of 5 USD");
+    JLabel lineThree = new JLabel("You will be charged a fee of 5" + " " + c.getCurrency());
     lineThree.setBounds(5,115,300,25);
     panel.add(lineThree);
 

@@ -48,7 +48,7 @@ public class TransactionsMoneyScreen{
     // FIgure out how to pull the real info for this
     JLabel type = new JLabel(curAccount.getType());
     JLabel num = new JLabel(curAccount.getAccountNumber());
-    JLabel balance = new JLabel(Double.toString(curAccount.getBalance()));
+    JLabel balance = new JLabel(Double.toString(curAccount.getBalance()) + " " + c.getCurrency());
     type.setBounds(150,40, 200, 25);
     num.setBounds(150,55, 200, 25);
     balance.setBounds(150,70, 200, 25);

@@ -57,7 +57,7 @@ public class AccountInfoScreen{
       JLabel accBalance = new JLabel("Account balance:");
       accBalance.setBounds(30,y, 200, 25);
       panel.add(accBalance);
-      JLabel balance = new JLabel(Double.toString(c.getAccounts().get(i).getBalance()));
+      JLabel balance = new JLabel(Double.toString(c.getAccounts().get(i).getBalance()) + " " + c.getCurrency());
       balance.setBounds(150,y, 200, 25);
       panel.add(balance);
       y += 10;
