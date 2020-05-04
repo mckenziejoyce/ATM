@@ -1,4 +1,4 @@
-
+package OOP;
 public class Manager {
     private Customer[] customers;
     private double money;

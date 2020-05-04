@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,17 +10,17 @@ import java.awt.event.*;
 public class OpenNewAccountScreen{
   private JFrame frame;
 
-  public OpenNewAccountScreen(){
+  public OpenNewAccountScreen(Customer c){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel);
+    placeComponents(panel, c);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel){
+  private void placeComponents(JPanel panel, Customer c){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Open a New Account");
     headerMessage.setBounds(5,5,200,25);
@@ -34,7 +35,7 @@ public class OpenNewAccountScreen{
     withdrawButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new NewAccountConfirmationScreen("c");
+        new NewAccountConfirmationScreen("c", c);
         }});
     panel.add(withdrawButton);
 
@@ -43,7 +44,7 @@ public class OpenNewAccountScreen{
     depositButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new NewAccountConfirmationScreen("s");
+        new NewAccountConfirmationScreen("s", c);
         }});
     panel.add(depositButton);
 
@@ -52,7 +53,7 @@ public class OpenNewAccountScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new AccountManagementScreen();
+        new AccountManagementScreen(c);
         }});
     panel.add(backButton);
 
@@ -61,7 +62,7 @@ public class OpenNewAccountScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen();
+        new WelcomeScreen(c);
         }});
     panel.add(logoutButton);
   }

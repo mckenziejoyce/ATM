@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,17 +11,17 @@ import java.awt.event.*;
 public class NewAccountConfirmationScreen{
   private JFrame frame;
 
-  public NewAccountConfirmationScreen(String account){
+  public NewAccountConfirmationScreen(String account, Customer c){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, account);
+    placeComponents(panel, account, c);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, String account){
+  private void placeComponents(JPanel panel, String account, Customer c){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Open a New Account");
     headerMessage.setBounds(5,5,200,25);
@@ -45,20 +46,24 @@ public class NewAccountConfirmationScreen{
     panel.add(accBalance);
 
     // FIgure out how to pull the real info for this
-    JLabel type = new JLabel("");
+    JLabel type = new JLabel("xxxxxxxxxxxx");
+    JLabel num = new JLabel("xxxxxxxxxxxx");
+    JLabel balance = new JLabel("0.00");
 
     if(account.equals("c")){
       type = new JLabel("Checking");
+      c.makeCheckingAccount(0, "US");
+      num = new JLabel(c.getChecking().getAccountNumber());
     }
     else if(account.equals("s")){
       type = new JLabel("Saving");
+      c.makeSavingAccount(0, "US");
+      num = new JLabel(c.getSaving().getAccountNumber());
     }
     else if(account.equals("sc")){
       type = new JLabel("Security");
     }
-    
-    JLabel num = new JLabel("xxxxxxxxxxx");
-    JLabel balance = new JLabel("xxxxxxxxxxxx");
+
     type.setBounds(150,60, 200, 25);
     num.setBounds(150,75, 200, 25);
     balance.setBounds(150,90, 200, 25);
@@ -75,7 +80,7 @@ public class NewAccountConfirmationScreen{
     confirmButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new AccountManagementScreen();
+        new AccountManagementScreen(c);
         }});
     panel.add(confirmButton);
 
@@ -84,7 +89,7 @@ public class NewAccountConfirmationScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new OpenNewAccountScreen();
+        new OpenNewAccountScreen(c);
         }});
     panel.add(backButton);
 

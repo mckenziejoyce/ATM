@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,17 +10,17 @@ import java.awt.event.*;
 public class CloseAccSuccessScreen{
   private JFrame frame;
 
-  public CloseAccSuccessScreen(){
+  public CloseAccSuccessScreen(Customer c){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel);
+    placeComponents(panel, c);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel){
+  private void placeComponents(JPanel panel, Customer c){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Close a Current Account");
     headerMessage.setBounds(5,5,200,25);
@@ -66,7 +67,7 @@ public class CloseAccSuccessScreen{
     yesButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CustomerWelcomeScreen();
+        new CustomerWelcomeScreen(c);
         }});
     panel.add(yesButton);
 

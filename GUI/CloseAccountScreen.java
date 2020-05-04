@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,16 +11,16 @@ import java.awt.event.*;
 public class CloseAccountScreen{
   private JFrame frame;
 
-  public CloseAccountScreen(){
+  public CloseAccountScreen(Customer c){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel);
+    placeComponents(panel, c);
     frame.setVisible(true);
   }
-  private void placeComponents(JPanel panel){
+  private void placeComponents(JPanel panel, Customer c){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Close a Current Account");
     headerMessage.setBounds(5,5,200,25);
@@ -86,7 +87,7 @@ public class CloseAccountScreen{
         String closedAccount = userText.getText();
         int accNum = Integer.parseInt(closedAccount);
         frame.dispose();
-        new CloseAccConfirmScreen(accNum);
+        new CloseAccConfirmScreen(accNum, c);
         }});
     panel.add(submitButton);
 
@@ -95,7 +96,7 @@ public class CloseAccountScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new AccountManagementScreen();
+        new AccountManagementScreen(c);
         }});
     panel.add(backButton);
 
@@ -104,7 +105,7 @@ public class CloseAccountScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen();
+        new WelcomeScreen(c);
         }});
     panel.add(logoutButton);
 

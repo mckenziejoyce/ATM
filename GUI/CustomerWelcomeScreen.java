@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,18 +10,18 @@ import java.awt.event.*;
 public class CustomerWelcomeScreen{
   private JFrame frame;
 
-  public CustomerWelcomeScreen(){
+  public CustomerWelcomeScreen(Customer c){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     //setUpPage();
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel);
+    placeComponents(panel, c);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel){
+  private void placeComponents(JPanel panel, Customer c){
     panel.setLayout(null);
     JLabel welcomeMessage = new JLabel("Welcome customer!");
     welcomeMessage.setBounds(5,5,200,25);
@@ -35,7 +36,7 @@ public class CustomerWelcomeScreen{
     transactionsButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new TransactionsScreen();
+        new TransactionsScreen(c);
         }});
     panel.add(transactionsButton);
 
@@ -44,7 +45,7 @@ public class CustomerWelcomeScreen{
     accManButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new AccountManagementScreen();
+        new AccountManagementScreen(c);
         }});
     panel.add(accManButton);
 
@@ -61,7 +62,7 @@ public class CustomerWelcomeScreen{
     currecyButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CurrencySettingsScreen();
+        new CurrencySettingsScreen(c);
         }});
     panel.add(currecyButton);
 
@@ -70,7 +71,7 @@ public class CustomerWelcomeScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen();
+        new WelcomeScreen(c);
         }});
     panel.add(logoutButton);
   }

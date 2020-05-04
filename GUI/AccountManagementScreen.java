@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,17 +10,17 @@ import java.awt.event.*;
 public class AccountManagementScreen{
   private JFrame frame;
 
-  public AccountManagementScreen(){
+  public AccountManagementScreen(Customer c){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel);
+    placeComponents(panel, c);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel){
+  private void placeComponents(JPanel panel, Customer c){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Account Management");
     headerMessage.setBounds(5,5,200,25);
@@ -34,7 +35,7 @@ public class AccountManagementScreen{
     openAccButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new OpenNewAccountScreen();
+        new OpenNewAccountScreen(c);
         }});
     panel.add(openAccButton);
 
@@ -43,7 +44,7 @@ public class AccountManagementScreen{
     closeAccButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CloseAccountScreen();
+        new CloseAccountScreen(c);
         }});
     panel.add(closeAccButton);
 
@@ -52,7 +53,7 @@ public class AccountManagementScreen{
     viewAccButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new AccountInfoScreen();
+        new AccountInfoScreen(c);
         }});
     panel.add(viewAccButton);
 
@@ -61,7 +62,7 @@ public class AccountManagementScreen{
     viewtransButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new MonthlyTransactionsScreen();
+        new MonthlyTransactionsScreen(c);
         }});
     panel.add(viewtransButton);
 
@@ -70,7 +71,7 @@ public class AccountManagementScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CustomerWelcomeScreen();
+        new CustomerWelcomeScreen(c);
         }});
     panel.add(backButton);
 
@@ -79,7 +80,7 @@ public class AccountManagementScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen();
+        new WelcomeScreen(c);
         }});
     panel.add(logoutButton);
   }

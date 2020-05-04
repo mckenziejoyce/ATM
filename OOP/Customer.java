@@ -1,3 +1,4 @@
+package OOP;
 import java.util.ArrayList;
 
 public class Customer {
@@ -12,12 +13,22 @@ public class Customer {
     public Customer(String n){
         name = n;
         transactions = new ArrayList<String>();
+        checking = null;
+        saving = null;
         realized = 0;
         unrealized = 0;
     }
 
     public Loan getLoan(){
         return loan;
+    }
+
+    public Saving getSaving(){
+        return saving;
+    }
+
+    public Checking getChecking(){
+        return checking;
     }
 
     public double getRealizedProfit(){

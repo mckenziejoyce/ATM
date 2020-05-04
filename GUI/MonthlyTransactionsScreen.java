@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,17 +10,17 @@ import java.awt.event.*;
 public class MonthlyTransactionsScreen{
   private JFrame frame;
 
-  public MonthlyTransactionsScreen(){
+  public MonthlyTransactionsScreen(Customer c){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel);
+    placeComponents(panel, c);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel){
+  private void placeComponents(JPanel panel, Customer c){
     int x = 5;
     int y = 5;
     panel.setLayout(null);
@@ -66,7 +67,7 @@ public class MonthlyTransactionsScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new AccountManagementScreen();
+        new AccountManagementScreen(c);
         }});
     panel.add(backButton);
 
@@ -75,7 +76,7 @@ public class MonthlyTransactionsScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen();
+        new WelcomeScreen(c);
         }});
     panel.add(logoutButton);
 

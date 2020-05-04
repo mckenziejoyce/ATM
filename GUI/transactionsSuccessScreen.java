@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import java.awt.event.*;
 import javax.swing.JButton;
@@ -8,17 +9,17 @@ import javax.swing.JPanel;
 public class TransactionsSuccessScreen{
   private JFrame frame;
 
-  public TransactionsSuccessScreen(){
+  public TransactionsSuccessScreen(Customer c){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel);
+    placeComponents(panel, c);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel){
+  private void placeComponents(JPanel panel, Customer c){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Transactions");
     headerMessage.setBounds(5,5,200,25);
@@ -64,7 +65,7 @@ public class TransactionsSuccessScreen{
     yesButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CustomerWelcomeScreen();
+        new CustomerWelcomeScreen(c);
         }});
     panel.add(yesButton);
 

@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,18 +11,18 @@ public class CloseAccConfirmScreen{
   private JFrame frame;
   private int accNumber;
 
-  public CloseAccConfirmScreen(int numOfAccountToClose){
+  public CloseAccConfirmScreen(int numOfAccountToClose, Customer c){
     frame = new JFrame("MyATM");
     accNumber = numOfAccountToClose;
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel);
+    placeComponents(panel, c);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel){
+  private void placeComponents(JPanel panel, Customer c){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Close a Current Account");
     headerMessage.setBounds(5,5,200,25);
@@ -69,7 +70,7 @@ public class CloseAccConfirmScreen{
     confirmButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CloseAccSuccessScreen();
+        new CloseAccSuccessScreen(c);
         }});
     panel.add(confirmButton);
 
@@ -78,7 +79,7 @@ public class CloseAccConfirmScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CloseAccountScreen();
+        new CloseAccountScreen(c);
         }});
     panel.add(backButton);
 

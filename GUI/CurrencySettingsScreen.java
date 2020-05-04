@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,17 +10,17 @@ import java.awt.event.*;
 public class CurrencySettingsScreen{
   private JFrame frame;
 
-  public CurrencySettingsScreen(){
+  public CurrencySettingsScreen(Customer c){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel);
+    placeComponents(panel, c);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel){
+  private void placeComponents(JPanel panel, Customer c){
     int x = 5;
     int y = 5;
     panel.setLayout(null);
@@ -56,7 +57,7 @@ public class CurrencySettingsScreen{
       public void actionPerformed(ActionEvent e){
         frame.dispose();
         // FIGURE OUT HOW TO UPDATE CURRENCY
-        new CustomerWelcomeScreen();
+        new CustomerWelcomeScreen(c);
         }});
     panel.add(currOneButton);
 
@@ -67,7 +68,7 @@ public class CurrencySettingsScreen{
       public void actionPerformed(ActionEvent e){
         frame.dispose();
         // FIGURE OUT HOW TO UPDATE CURRENCY
-        new CustomerWelcomeScreen();
+        new CustomerWelcomeScreen(c);
         }});
     panel.add(currTwoButton);
 
@@ -78,7 +79,7 @@ public class CurrencySettingsScreen{
       public void actionPerformed(ActionEvent e){
         frame.dispose();
         // FIGURE OUT HOW TO UPDATE CURRENCY
-        new CustomerWelcomeScreen();
+        new CustomerWelcomeScreen(c);
         }});
     panel.add(currThreeButton);
 
@@ -88,7 +89,7 @@ public class CurrencySettingsScreen{
       public void actionPerformed(ActionEvent e){
         frame.dispose();
         // FIGURE OUT HOW TO UPDATE CURRENCY
-        new CustomerWelcomeScreen();
+        new CustomerWelcomeScreen(c);
         }});
     panel.add(backButton);
 
@@ -97,7 +98,7 @@ public class CurrencySettingsScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen();
+        new WelcomeScreen(c);
         }});
     panel.add(logoutButton);
   }

@@ -1,4 +1,5 @@
 package GUI;
+import OOP.*;
 
 import java.awt.event.*;
 import javax.swing.JButton;
@@ -13,7 +14,8 @@ public class MyATM{
     setUpFrame();
   }
   private static void setUpFrame(){
-    WelcomeScreen firstScreen = new WelcomeScreen();
+    Customer c = new Customer("Anthony");
+    WelcomeScreen firstScreen = new WelcomeScreen(c);
     firstScreen.setVisible(true);
   }
 }

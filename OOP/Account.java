@@ -1,4 +1,6 @@
+package OOP;
 import java.util.Random;
+
 
 public class Account{
     private double money;
