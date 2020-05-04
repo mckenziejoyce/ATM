@@ -23,7 +23,7 @@ public class CustomerWelcomeScreen{
 
   private void placeComponents(JPanel panel, Customer c){
     c.isRich(); //Checks if customer is rich to open up options
-    
+
     panel.setLayout(null);
     JLabel welcomeMessage = new JLabel("Welcome customer!");
     welcomeMessage.setBounds(5,5,200,25);
@@ -51,21 +51,27 @@ public class CustomerWelcomeScreen{
         }});
     panel.add(accManButton);
 
+    int y = 130;
     JButton loanButton = new JButton("Loan Options");
-    loanButton.setBounds(10, 130, 200, 30);
+    loanButton.setBounds(10, y, 200, 30);
     loanButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
         new LoanScreen(c);
         }});
     panel.add(loanButton);
+    y+=30;
 
-    JButton stocksButton = new JButton("Trade Stocks and Security");
-    stocksButton.setBounds(10, 160, 200, 30);
-    panel.add(stocksButton);
+    if(c.getRich()){
+      JButton stocksButton = new JButton("Trade Stocks and Security");
+      stocksButton.setBounds(10, y, 200, 30);
+      panel.add(stocksButton);
+      y+=30;
+    }
+    
 
     JButton currecyButton = new JButton("Currency Settings");
-    currecyButton.setBounds(10, 190, 200, 30);
+    currecyButton.setBounds(10, y, 200, 30);
     currecyButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
