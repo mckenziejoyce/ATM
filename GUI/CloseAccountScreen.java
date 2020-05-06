@@ -86,8 +86,15 @@ public class CloseAccountScreen{
       public void actionPerformed(ActionEvent e){
         String closedAccount = userText.getText();
         int accNum = Integer.parseInt(closedAccount);
-        frame.dispose();
-        new CloseAccConfirmScreen(accNum, c);
+        if(c.getAccounts().contains(closedAccount)){
+          Account curAccount = c.getAccounts().get(accNum - 1);
+          frame.dispose();
+          new CloseAccConfirmScreen(accNum, c);
+        }
+        else{
+          userText.setText("");
+          new InvalidEntryPopUp("That account does not exist");
+        }
         }});
     panel.add(submitButton);
 
