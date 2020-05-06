@@ -14,9 +14,19 @@ public class MyATM{
     setUpFrame();
   }
   private static void setUpFrame(){
-    Customer c = new Customer("Anthony"); //Test customer
+    TestCases tc = new TestCases();
+    Customer c1 = tc.customer1();
+    Customer c2 = tc.customer2();
+    Customer c3 = tc.customer3();
+    StockMarket sm = tc.market();
     Manager m = new Manager();
-    WelcomeScreen firstScreen = new WelcomeScreen(c, m);
+    Customer[] clist = new Customer[3];
+    clist[1] = c1;
+    clist[2] = c2;
+    clist[3] = c3;
+    m.setCostomers(clist);
+    m.setStockMarket(sm);
+    WelcomeScreen firstScreen = new WelcomeScreen(c1, m);
     firstScreen.setVisible(true);
   }
 }
