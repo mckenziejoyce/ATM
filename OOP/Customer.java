@@ -7,21 +7,23 @@ public class Customer {
     protected Checking checking;
     protected Saving saving;
     protected Security security;
-    protected ArrayList<String> transactions;
+    protected ArrayList<Transactions> transactions;
     protected ArrayList<Account> accounts;  
     protected double realized; //Realized profit
     protected double unrealized; //Unrealized profit
     protected Loan loan; //The loan still left for the customer to pay
     protected String cur; //Currency 
     protected boolean rich; //True if the customer is rich
+    protected boolean mainSaving; //True if created main savings account
 
     public Customer(String n){
         name = n;
-        transactions = new ArrayList<String>();
+        transactions = new ArrayList<Transactions>();
         realized = 0;
         unrealized = 0;
         accounts = new ArrayList<Account>();
         cur = "USD";
+        mainSaving = false;
     }
 
     public String getName(){
@@ -70,8 +72,15 @@ public class Customer {
 
     //Customer creates a Savings account
     public void makeSavingAccount(double cash){
-        this.saving = new Saving(cash);
-        this.accounts.add(this.saving);
+        if(mainSaving = false){
+            mainSaving = true;
+            this.saving = new Saving(cash, true);
+            this.accounts.add(this.saving);
+        }
+        else{
+            this.saving = new Saving(cash, false);
+            this.accounts.add(this.saving);
+        }
     }
 
     //Customer creates a Checkings account
@@ -91,12 +100,12 @@ public class Customer {
         if(account.equals("s")){
             this.saving.withdraw(amount);
             this.realized -= amount;
-            this.transactions.add("Savings -" + amount);
+            this.transactions.add(new Transactions("Savings -" + amount, amount));
         }
         else if(account.equals("c")){
             this.checking.withdraw(amount);
             this.realized -= amount;
-            this.transactions.add("Checking -" + amount);
+            this.transactions.add(new Transactions("Checking -" + amount, amount));
         }
     }
 
@@ -106,12 +115,12 @@ public class Customer {
         if(account.equals("s")){
             this.saving.deposit(amount);
             this.realized += amount;
-            this.transactions.add("Savings +" + amount);
+            this.transactions.add(new Transactions("Savings +" + amount, amount));
         }
         else if(account.equals("c")){
             this.checking.deposit(amount);
             this.realized += amount;
-            this.transactions.add("Checking +" + amount);
+            this.transactions.add(new Transactions("Checking +" + amount, amount));
         }
     }
 
@@ -128,7 +137,7 @@ public class Customer {
     }
 
     //Returns a string of transactions
-    public ArrayList<String> getTransactions(){
+    public ArrayList<Transactions> getTransactions(){
         return transactions;
     }
 
@@ -137,7 +146,9 @@ public class Customer {
         for(int i=0; i< this.accounts.size(); i++){
             Account acc = this.accounts.get(i);
             if(acc.getType().equals("Savings") && acc.getBalance() >= 5000){
-                this.rich = true;
+                if(((Saving)acc).isMain()){
+                    this.rich = true;
+                }
             }
         }
         

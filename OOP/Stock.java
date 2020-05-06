@@ -1,5 +1,5 @@
 package OOP;
-public class Stock {
+public class Stock{
     private double cost;
     private String name;
 

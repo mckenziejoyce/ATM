@@ -50,12 +50,12 @@ public class LoanSuccessScreen {
         if(action.equals("Pay")){
             curAccount.withdraw(Double.valueOf(money));
             c.payLoan(Double.valueOf(money));
-            c.getTransactions().add(curAccount.getType() + " loan payment: -" + money);
+            c.getTransactions().add(new Transactions(curAccount.getType() + " loan payment: -" + money, Double.valueOf(money)));
         }
         else if(action.equals("Apply")){
             curAccount.deposit(Double.valueOf(money));
             c.applyLoan(Double.valueOf(money), 0.12);
-            c.getTransactions().add(curAccount.getType() + " loan apply: +" + money);
+            c.getTransactions().add(new Transactions(curAccount.getType() + " loan apply: +" + money, Double.valueOf(money)));
         }
         
         JLabel type = new JLabel(curAccount.getType());

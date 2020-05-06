@@ -62,7 +62,7 @@ public class AccountManagementScreen{
     viewtransButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new MonthlyTransactionsScreen(c);
+        new MonthlyTransactionsSuccessScreen(c);
         }});
     panel.add(viewtransButton);
 

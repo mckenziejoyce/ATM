@@ -12,8 +12,8 @@
 In Command Type in
 
 ```
-javac MyATM.java
-java MyATM
+javac javac GUI/MyATM.java
+java GUI.MyATM
 ```
 
 ## How the program starts
