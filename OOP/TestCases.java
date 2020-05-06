@@ -31,13 +31,13 @@ public class TestCases {
         c.makeCheckingAccount(20);
         return c;
     }
-    public StockMarket market(){
+    public static StockMarket market(){
         StockMarket market = new StockMarket();
-        market.add(new Stock("stock a",10));
-        market.add(new Stock("stock b",3));
-        market.add(new Stock("stock c",9));
-        market.add(new Stock("stock d",11));
-        market.add(new Stock("stock e",5));
+        market.getStockList().add(new Stock("stock a",10));
+        market.getStockList().add(new Stock("stock b",3));
+        market.getStockList().add(new Stock("stock c",9));
+        market.getStockList().add(new Stock("stock d",11));
+        market.getStockList().add(new Stock("stock e",5));
         return market;
     }
     public Manager manager(){

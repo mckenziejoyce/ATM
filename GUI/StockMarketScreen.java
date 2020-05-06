@@ -34,10 +34,13 @@ public class StockMarketScreen{
 
     
     int y = 25;
-    ArrayList<Stock> stocks = m.getStocks().getStockList();
+    ArrayList<Stock> stocks = TestCases.market().getStockList();
+    
+    
     Security sec = c.getSecurity();
     ArrayList<OpeningStock> open = sec.getOpening();
-
+    
+    
     if(action.equals("Buy")){
         int numOfStocks = stocks.size();
         int i = 0;
@@ -64,6 +67,7 @@ public class StockMarketScreen{
             i++;
         }
     }
+    
     else if(action.equals("Sell")){
       int numOfOpens = open.size();
       int i = 0;
@@ -90,6 +94,7 @@ public class StockMarketScreen{
         i++;
       }
     }
+    
 
     y += 15;
 
