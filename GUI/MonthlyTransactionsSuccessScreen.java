@@ -44,6 +44,7 @@ public class MonthlyTransactionsSuccessScreen {
                 y+= 15;
             }
         }
+        y+= 20;
         
 
         // Figure out how to pull and display account info
