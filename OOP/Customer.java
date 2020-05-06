@@ -45,7 +45,12 @@ public class Customer {
     }
 
     public Security getSecurity(){
-        return security;
+        for(int i =0; i<this.getAccounts().size(); i++){
+            if(this.getAccounts().get(i).getType().equals("Security")){
+                return (Security)this.getAccounts().get(i);
+            }
+        }
+        return null;
     }
 
     public String getCurrency(){
