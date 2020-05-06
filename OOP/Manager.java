@@ -4,7 +4,8 @@ import java.util.ArrayList;
 public class Manager {
     private Customer[] customers;
     private double money;
-    private ArrayList<Stock> stockMarket;
+    private StockMarket stockMarket;
+
 
     public Manager(){
         money = 0;
@@ -37,13 +38,7 @@ public class Manager {
             }
         }
     }
-    public void addStock(Stock newStock){
-        stockMarket.add(newStock);
-    }
-    public void removeStock(Stock stock){
-        stockMarket.remove(stock);
-    }
-    public ArrayList<Stock> getStocks(){
+    public StockMarket getStocks(){
         return stockMarket;
     }
     public Customer[] getCustomers(){
