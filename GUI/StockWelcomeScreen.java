@@ -38,7 +38,7 @@ public class StockWelcomeScreen{
         transactionsButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new TransactionsScreen(c, m);
+                new StockOption(c, m);
             }});
         panel.add(transactionsButton);
 

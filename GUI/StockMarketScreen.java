@@ -43,7 +43,7 @@ public class StockMarketScreen{
         int i = 0;
         while(i < numOfStocks){
             y += 15;
-            JLabel accLabel = new JLabel("Company Name: " + stocks.get(i).getName());
+            JLabel accLabel = new JLabel((i+1) + "Company Name: " + stocks.get(i).getName());
             accLabel.setBounds(19,y,200,25);
             panel.add(accLabel);
             y += 15;
@@ -69,7 +69,7 @@ public class StockMarketScreen{
       int i = 0;
       while(i < numOfOpens){
         y += 15;
-        JLabel accLabel = new JLabel("Company Name: " + open.get(i).getName());
+        JLabel accLabel = new JLabel((i+1) + "Company Name: " + open.get(i).getName());
         accLabel.setBounds(19,y,200,25);
         panel.add(accLabel);
         y += 15;
@@ -89,13 +89,11 @@ public class StockMarketScreen{
         y += 15;
         i++;
       }
-
-
     }
 
     y += 15;
 
-    JLabel lineTwo = new JLabel("Enter the account number you want to use");
+    JLabel lineTwo = new JLabel("Enter the stock number you want to " + action);
     lineTwo.setBounds(5,y,300,25);
     panel.add(lineTwo);
 
@@ -109,14 +107,19 @@ public class StockMarketScreen{
     submitButton.setBounds(40, y, 100, 25);
     submitButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
-        String account = userText.getText();
-        int accNum = Integer.parseInt(account);
+        String stock = userText.getText();
+        int sNum = Integer.parseInt(stock);
         ArrayList<Account> acc = c.getAccounts();
-        boolean cont = accNum <= acc.size();
+        boolean cont = sNum <= stocks.size();
         if(cont){
-          Account curAccount = c.getAccounts().get(accNum-1);
+          
           frame.dispose();
-          new TransactionsMoneyScreen(c, account, action, m);
+          if(action.equals("Buy")){
+            new StockSuccessScreen(c, sNum, action, m);
+          }
+          else if(action.equals("Sell")){
+            new StockSuccessScreen(c, sNum, action, m);
+          }
         }
         else{
           userText.setText("");
