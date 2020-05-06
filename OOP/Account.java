@@ -1,5 +1,6 @@
 package OOP;
 import java.util.Random;
+import java.util.Calendar;
 
 
 public class Account{
@@ -7,11 +8,13 @@ public class Account{
     private String curr; //Currency for USD, EUR, and JPY
     private String aNumber; //Account number
     protected String type;
+    protected Calendar date;
     
     public Account(double m){
         money = m;
         aNumber = "";
         type = "Account";
+        date =  Calendar.getInstance();
 
         Random rand = new Random();
         for(int i =0; i<9; i++){
@@ -46,4 +49,5 @@ public class Account{
     public void deposit(double amount){
         money += amount;
     }
+
 }
