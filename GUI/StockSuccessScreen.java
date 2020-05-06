@@ -10,17 +10,17 @@ import javax.swing.JPanel;
 public class StockSuccessScreen{
   private JFrame frame;
 
-  public StockSuccessScreen(Customer c, int sNumber, String action, Manager m){
+  public StockSuccessScreen(Customer c, int sNumber, int shNumber, String action, Manager m){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c, sNumber, action, m);
+    placeComponents(panel, c, sNumber, shNumber, action, m);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c, int sNumber, String action, Manager m){
+  private void placeComponents(JPanel panel, Customer c, int sNumber, int shNumber, String action, Manager m){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Stocks");
     headerMessage.setBounds(5,5,200,25);
@@ -42,6 +42,7 @@ public class StockSuccessScreen{
 
         JLabel sType = new JLabel("Company name: " + stocks.get(sNumber-1).getName());
         JLabel sNum = new JLabel("Stock Price: " + stocks.get(sNumber-1).getPrice());
+        sec.buyStock(stocks.get(sNumber-1), shNumber);
         JLabel sBalance = new JLabel("Account balance: " + c.getSecurity().getBalance());
         sType.setBounds(30,60, 200, 25);
         sNum.setBounds(30,75, 200, 25);
@@ -57,6 +58,7 @@ public class StockSuccessScreen{
 
         JLabel sType = new JLabel("Company name: " + sec.getOpening().get(sNumber-1).getName());
         JLabel sNum = new JLabel("Stock Price: " + sec.getOpening().get(sNumber-1).getPrice());
+        sec.sellStock(sNumber, shNumber, sec.getOpening().get(sNumber-1).getPrice());
         JLabel sBalance = new JLabel("Account balance: " + c.getSecurity().getBalance());
         sType.setBounds(30,60, 200, 25);
         sNum.setBounds(30,75, 200, 25);
@@ -64,6 +66,8 @@ public class StockSuccessScreen{
         panel.add(sType);
         panel.add(sNum);
         panel.add(sBalance);
+
+        
     }
 
     JLabel lineThree = new JLabel("Would you like to continue using the bank app?");

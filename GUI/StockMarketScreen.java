@@ -102,23 +102,36 @@ public class StockMarketScreen{
     userText.setBounds(5,y,165,25);
     panel.add(userText);
 
-    y += 30;
+    y += 20;
+
+    JLabel shareLine = new JLabel("Enter how many shares you wish to " + action );
+    shareLine.setBounds(5,y,300,25);
+    panel.add(shareLine);
+
+    y += 20;
+    JTextField userText2 = new JTextField(50);
+    userText2.setBounds(5,y,165,25);
+    panel.add(userText2);
+    y+= 25;
+
     JButton submitButton = new JButton("Submit");
     submitButton.setBounds(40, y, 100, 25);
     submitButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         String stock = userText.getText();
         int sNum = Integer.parseInt(stock);
+        String share = userText2.getText();
+        int shNum = Integer.parseInt(share);
         ArrayList<Account> acc = c.getAccounts();
         boolean cont = sNum <= stocks.size();
         if(cont){
           
           frame.dispose();
           if(action.equals("Buy")){
-            new StockSuccessScreen(c, sNum, action, m);
+            new StockSuccessScreen(c, sNum, shNum, action, m);
           }
           else if(action.equals("Sell")){
-            new StockSuccessScreen(c, sNum, action, m);
+            new StockSuccessScreen(c, sNum, shNum, action, m);
           }
         }
         else{
