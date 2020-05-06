@@ -181,10 +181,25 @@ public class Customer {
 
     //RICH CUSTOMER FUNCTIONS ################################
 
+    //Adds a security accuount to the list
     public void makeSecurityAccount(){
         this.security = new Security(1000);
         this.saving.withdraw(1000);
         this.accounts.add(this.security);
         this.hasSecurity = true;
+    }
+
+    //Interest added to the svaing account if Customer is rich
+    public void interestPay(){
+        if(this.rich){
+            for(int i=0; i<this.accounts.size(); i++){
+                Account cur = this.accounts.get(i);
+                double balance = cur.getBalance();
+
+                if(cur.getType().equals("Saving")){
+                    cur.deposit(balance*.01);
+                }
+            }
+        }
     }
 }

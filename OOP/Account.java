@@ -8,12 +8,8 @@ public class Account{
     private String curr; //Currency for USD, EUR, and JPY
     private String aNumber; //Account number
     protected String type;
-<<<<<<< HEAD
     protected Calendar date;
     
-=======
-
->>>>>>> 37b3b5173e71e9f8fa47e41b6a008df3c1c5ba7f
     public Account(double m){
         money = m;
         aNumber = "";
@@ -67,4 +63,5 @@ public class Account{
       }
       return ret;
     }
+    
 }
