@@ -26,13 +26,14 @@ public class Manager {
         this.money +=  fee;
     }
     
-    public void setCustomer(Customer[] c){
+    public void setCustomers(Customer[] c){
         this.customers = c;
     }
     
-    public Customer[] getCustomer(){
-        return this.customers;
-    }
+    public void setStockMarket(StockMarket sm){
+        stockMarket = sm;
+    };
+   
 
     //Increases all the customer loans after a month passes
     public void increaseLoans(){
