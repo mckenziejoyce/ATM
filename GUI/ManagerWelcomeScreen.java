@@ -35,8 +35,8 @@ public class ManagerWelcomeScreen{
     transactionsButton.setBounds(10, 70, 250, 30);
     transactionsButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
-        //frame.dispose();
-
+        frame.dispose();
+        new ManagerTransactionsScreen(m);
         }});
     panel.add(transactionsButton);
 
