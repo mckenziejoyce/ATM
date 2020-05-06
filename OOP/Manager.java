@@ -25,6 +25,14 @@ public class Manager {
     public void accountFee(double fee){
         this.money +=  fee;
     }
+    
+    public void setCustomer(Customer[] c){
+        this.customers = c;
+    }
+    
+    public Customer[] getCustomer(){
+        return this.customers;
+    }
 
     //Increases all the customer loans after a month passes
     public void increaseLoans(){
