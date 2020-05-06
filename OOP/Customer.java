@@ -26,6 +26,7 @@ public class Customer {
         cur = "USD";
         mainSaving = false;
         hasSecurity = false;
+        security = new Security(1000.0);
     }
 
     public String getName(){
@@ -45,12 +46,7 @@ public class Customer {
     }
 
     public Security getSecurity(){
-        for(int i =0; i<this.getAccounts().size(); i++){
-            if(this.getAccounts().get(i).getType().equals("Security")){
-                return (Security)this.getAccounts().get(i);
-            }
-        }
-        return null;
+        return security;
     }
 
     public String getCurrency(){

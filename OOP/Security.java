@@ -19,8 +19,14 @@ public class Security extends Account{
         unrealProfit = 0;
         totalProfit = 0;
         principle = money;
+        opening = new ArrayList<OpeningStock>();
+        opening.add(new OpeningStock("stock", 1.0, 1));
     }
-    public ArrayList<OpeningStock> getOpening(){ return opening; }
+    
+    public ArrayList<OpeningStock> getOpening(){
+        opening.add(new OpeningStock("stock", 1.0, 1));
+        return opening; 
+    }
     public void buyStock(Stock stock,int share) {
         //Error handling here
         //if(price * share > this.getBalance()){
