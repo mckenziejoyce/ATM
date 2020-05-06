@@ -66,6 +66,15 @@ public class AccountManagementScreen{
         }});
     panel.add(viewtransButton);
 
+    JButton accountTransferButton = new JButton("Transfer money bewteen accounts");
+    accountTransferButton.setBounds(10, 180, 270, 30);
+    accountTransferButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        frame.dispose();
+        new AccountTransfer(c, m);
+        }});
+    panel.add(accountTransferButton);
+
     JButton backButton = new JButton("Back");
     backButton.setBounds(300, 65, 130, 50);
     backButton.addActionListener(new ActionListener(){
