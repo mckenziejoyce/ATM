@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class ManagerCustomerDisplayScreen{
   private JFrame frame;
 
-  public CheckOnCustomerSelection(Customer c){
+  public ManagerCustomerDisplayScreen(Customer c){
       frame = new JFrame("MyATM");
       frame.setSize(500, 300);
       frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

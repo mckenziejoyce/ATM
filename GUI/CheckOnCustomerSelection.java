@@ -37,7 +37,7 @@ public class CheckOnCustomerSelection{
     if(customers != null){
       lol = customers.length;
     }
-    y = 40;
+    int y = 40;
     for(int i=0; i< lol; i++){
       String custLabel = "Customer "+(i+1)+ ":" + customers[i].getName();
       JLabel custName = new JLabel(custLabel);
@@ -46,7 +46,7 @@ public class CheckOnCustomerSelection{
       y += 15;
     }
     JLabel lineTwo = new JLabel("Enter the corresponding number of the customer");
-    lineTwo.setBounds(5,y,300,25);
+    lineTwo.setBounds(5,y,400,25);
     panel.add(lineTwo);
 
     y += 20;
@@ -59,11 +59,16 @@ public class CheckOnCustomerSelection{
     submitButton.setBounds(40, y, 100, 25);
     submitButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
+        Customer[] notcustomers = m.getCustomers();
+        int notlol = 0;
+        if(notcustomers != null){
+          notlol = notcustomers.length;
+        }
         String account = userText.getText();
-        int accNum = Integer.parseInt(account);
-        boolean cont = (accNum > lol) || (accNum < 0);
+        int custNum = Integer.parseInt(account);
+        boolean cont = (custNum > notlol) && (custNum < 0);
         if(cont){
-          Customer selectedCustomer = customers[accNum]
+          Customer selectedCustomer = customers[custNum-1];
           frame.dispose();
           new ManagerCustomerDisplayScreen(selectedCustomer);
         }
