@@ -15,7 +15,8 @@ public class MyATM{
   }
   private static void setUpFrame(){
     Customer c = new Customer("Anthony"); //Test customer
-    WelcomeScreen firstScreen = new WelcomeScreen(c);
+    Manager m = new Manager();
+    WelcomeScreen firstScreen = new WelcomeScreen(c, m);
     firstScreen.setVisible(true);
   }
 }

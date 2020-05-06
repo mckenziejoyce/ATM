@@ -10,16 +10,16 @@ import java.awt.event.*;
 public class AccountInfoScreen{
   private JFrame frame;
 
-  public AccountInfoScreen(Customer c){
+  public AccountInfoScreen(Customer c, Manager m){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c);
+    placeComponents(panel, c, m);
     frame.setVisible(true);
   }
-  private void placeComponents(JPanel panel, Customer c){
+  private void placeComponents(JPanel panel, Customer c, Manager m){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("View Account Information");
     headerMessage.setBounds(5,5,200,25);
@@ -68,7 +68,7 @@ public class AccountInfoScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new AccountManagementScreen(c);
+        new AccountManagementScreen(c, m);
         }});
     panel.add(backButton);
 
@@ -77,7 +77,7 @@ public class AccountInfoScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen(c);
+        new WelcomeScreen(c, m);
         }});
     panel.add(logoutButton);
   }

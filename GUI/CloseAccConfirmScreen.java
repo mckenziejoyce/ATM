@@ -11,18 +11,18 @@ public class CloseAccConfirmScreen{
   private JFrame frame;
   private int accNumber;
 
-  public CloseAccConfirmScreen(int numOfAccountToClose, Customer c){
+  public CloseAccConfirmScreen(int numOfAccountToClose, Customer c, Manager m){
     frame = new JFrame("MyATM");
     accNumber = numOfAccountToClose;
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c, numOfAccountToClose);
+    placeComponents(panel, c, m, numOfAccountToClose);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c, int aNumber){
+  private void placeComponents(JPanel panel, Customer c, Manager m, int aNumber){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Close a Current Account");
     headerMessage.setBounds(5,5,200,25);
@@ -71,7 +71,7 @@ public class CloseAccConfirmScreen{
     confirmButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CloseAccSuccessScreen(c, aNumber);
+        new CloseAccSuccessScreen(c, m, aNumber);
         }});
     panel.add(confirmButton);
 
@@ -80,7 +80,7 @@ public class CloseAccConfirmScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CloseAccountScreen(c);
+        new CloseAccountScreen(c, m);
         }});
     panel.add(backButton);
 

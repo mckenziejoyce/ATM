@@ -8,6 +8,9 @@ public class StockMarket {
     public StockMarket(){
         stockList = new ArrayList<Stock>();
     }
+    public ArrayList<Stock> getStockList(){
+        return stockList;
+    }
     public void addStock(Stock newStock){
         stockList.add(newStock);
     }

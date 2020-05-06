@@ -12,16 +12,16 @@ import java.util.ArrayList;
 public class ViewOpenPositionScreen{
     private JFrame frame;
 
-    public ViewOpenPositionScreen(Customer c){
+    public ViewOpenPositionScreen(Customer c, Manager m){
         frame = new JFrame("MyATM");
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
         frame.add(panel);
-        placeComponents(panel, c);
+        placeComponents(panel, c, m);
         frame.setVisible(true);
     }
-    private void placeComponents(JPanel panel, Customer c){
+    private void placeComponents(JPanel panel, Customer c, Manager m){
         panel.setLayout(null);
         JLabel headerMessage = new JLabel("View Open Position");
         headerMessage.setBounds(5,5,200,25);
@@ -73,7 +73,7 @@ public class ViewOpenPositionScreen{
         backButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new StockWelcomeScreen(c);
+                new StockWelcomeScreen(c, m);
             }});
         panel.add(backButton);
 
@@ -82,7 +82,7 @@ public class ViewOpenPositionScreen{
         logoutButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new WelcomeScreen(c);
+                new WelcomeScreen(c, m);
             }});
         panel.add(logoutButton);
 

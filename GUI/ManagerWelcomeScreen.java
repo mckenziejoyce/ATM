@@ -55,7 +55,7 @@ public class ManagerWelcomeScreen{
       public void actionPerformed(ActionEvent e){
         frame.dispose();
         Customer n = new Customer("Bob");
-        new WelcomeScreen(n);
+        new WelcomeScreen(n, m);
         }});
     panel.add(logoutButton);
   }

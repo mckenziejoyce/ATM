@@ -10,17 +10,17 @@ import java.awt.event.*;
 public class CurrencySettingsScreen{
   private JFrame frame;
 
-  public CurrencySettingsScreen(Customer c){
+  public CurrencySettingsScreen(Customer c, Manager m){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c);
+    placeComponents(panel, c, m);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c){
+  private void placeComponents(JPanel panel, Customer c, Manager m){
     int x = 5;
     int y = 5;
     panel.setLayout(null);
@@ -64,7 +64,7 @@ public class CurrencySettingsScreen{
           i++;
         }
         c.changeCurrency("USD");
-        new CustomerWelcomeScreen(c);
+        new CustomerWelcomeScreen(c, m);
         }});
     panel.add(currOneButton);
 
@@ -82,7 +82,7 @@ public class CurrencySettingsScreen{
           i++;
         }
         c.changeCurrency("EUR");
-        new CustomerWelcomeScreen(c);
+        new CustomerWelcomeScreen(c, m);
         }});
     panel.add(currTwoButton);
 
@@ -100,7 +100,7 @@ public class CurrencySettingsScreen{
           i++;
         }
         c.changeCurrency("JPY");
-        new CustomerWelcomeScreen(c);
+        new CustomerWelcomeScreen(c, m);
         }});
     panel.add(currThreeButton);
 
@@ -109,7 +109,7 @@ public class CurrencySettingsScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CustomerWelcomeScreen(c);
+        new CustomerWelcomeScreen(c, m);
         }});
     panel.add(backButton);
 
@@ -118,7 +118,7 @@ public class CurrencySettingsScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen(c);
+        new WelcomeScreen(c, m);
         }});
     panel.add(logoutButton);
   }
