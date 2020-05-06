@@ -42,6 +42,12 @@ public class WelcomeScreen{
 
     JButton managerButton = new JButton("I am the manager");
     managerButton.setBounds(10, 115, 200, 30);
+    managerButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        frame.dispose();
+        Manager m = new Manager();
+        new ManagerWelcomeScreen(m);
+        }});
     panel.add(managerButton);
 
   }

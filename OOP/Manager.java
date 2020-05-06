@@ -13,13 +13,13 @@ public class Manager {
     //Prints out the transactions of all the customers
     public void printTransactions(){
         int len = this.customers.length;
-        
+
         for(int i = 0; i<len; i++){
             System.out.println(this.customers[i].getTransactions());
         }
     }
 
-    //Account fee added to the manager when an account is 
+    //Account fee added to the manager when an account is
     //created or closed
     public void accountFee(double fee){
         this.money +=  fee;
@@ -28,7 +28,7 @@ public class Manager {
     //Increases all the customer loans after a month passes
     public void increaseLoans(){
         int len = this.customers.length;
-        
+
         for(int i = 0; i<len; i++){
             Loan loan = this.customers[i].getLoan();
 
@@ -45,6 +45,9 @@ public class Manager {
     }
     public ArrayList<Stock> getStocks(){
         return stockMarket;
+    }
+    public Customer[] getCustomers(){
+      return customers;
     }
 
 }
