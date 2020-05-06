@@ -1,10 +1,13 @@
 package OOP;
+import java.util.ArrayList;
+
 public class Manager {
     private Customer[] customers;
     private double money;
+    private ArrayList<Stock> stockMarket;
 
-    public Manager(double m){
-        money = m;
+    public Manager(){
+        money = 0;
     }
 
     //Prints out the transactions of all the customers
@@ -34,4 +37,14 @@ public class Manager {
             }
         }
     }
+    public void addStock(Stock newStock){
+        stockMarket.add(newStock);
+    }
+    public void removeStock(Stock stock){
+        stockMarket.remove(stock);
+    }
+    public ArrayList<Stock> getStocks(){
+        return stockMarket;
+    }
+
 }

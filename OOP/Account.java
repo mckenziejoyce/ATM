@@ -7,7 +7,7 @@ public class Account{
     private String curr; //Currency for USD, EUR, and JPY
     private String aNumber; //Account number
     protected String type;
-    
+
     public Account(double m){
         money = m;
         aNumber = "";
@@ -45,5 +45,18 @@ public class Account{
 
     public void deposit(double amount){
         money += amount;
+    }
+    public boolean equals(Account a){
+      boolean ret = true;
+      if(this.money != a.getBalance()){
+        ret = false;
+      }
+      if(this.getAccountNumber() != a.getAccountNumber()){
+        ret = false;
+      }
+      if(this.getType() != a.getType()){
+        ret = false;
+      }
+      return ret;
     }
 }

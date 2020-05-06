@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 
 public class TransactionsMoneyScreen{
@@ -68,8 +69,21 @@ public class TransactionsMoneyScreen{
     submitButton.setBounds(35, 145, 100, 25);
     submitButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
-        frame.dispose();
-        new TransactionsSuccessScreen(c, aNumber, userText.getText(), action);
+        String money = userText.getText();
+        int moneyNum = Integer.parseInt(money);
+        if(action.compareTo("Withdraw")==0){
+          if(curAccount.getBalance()-moneyNum >= 0){
+            frame.dispose();
+            new TransactionsSuccessScreen(c, aNumber, money, action);
+          }
+          else{
+            userText.setText("");
+            new InvalidEntryPopUp("You do not have enough funds");
+          }
+        }
+        else{
+          new TransactionsSuccessScreen(c, aNumber, money, action);
+        }
         }});
     panel.add(submitButton);
 

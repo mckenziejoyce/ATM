@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class TransactionsAccountChoiceScreen{
   private JFrame frame;
@@ -82,8 +83,19 @@ public class TransactionsAccountChoiceScreen{
     submitButton.setBounds(40, y, 100, 25);
     submitButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
-        frame.dispose();
-        new TransactionsMoneyScreen(c, userText.getText(), action);
+        String account = userText.getText();
+        int accNum = Integer.parseInt(account);
+        ArrayList<Account> acc = c.getAccounts();
+        boolean cont = accNum <= acc.size();
+        if(cont){
+          Account curAccount = c.getAccounts().get(accNum-1);
+          frame.dispose();
+          new TransactionsMoneyScreen(c, account, action);
+        }
+        else{
+          userText.setText("");
+          new InvalidEntryPopUp("That account does not exist");
+        }
         }});
     panel.add(submitButton);
 

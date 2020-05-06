@@ -1,19 +1,21 @@
 package OOP;
-public class Stock{
-    private double cost;
-    private String name;
+public class Stock {
+    protected double price;
+    protected String name;
+    protected boolean available;
 
-    public Stock(String n, double c){
+    public Stock(String n, double p){
         name = n;
-        cost = c;
+        price = p;
     }
 
-    public double getCost(){
-        return cost;
-    }
+    public double getPrice() {return price;}
+    public String getName(){return name;}
+    public boolean available(){return available; }
 
-    public String getName(){
-        return name;
-    }
+    public void setPrice(int price){ this.price = price;}
+    public void setAvailable(boolean available){ this.available = available;}
+
+
 
 }
