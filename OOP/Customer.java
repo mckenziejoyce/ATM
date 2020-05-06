@@ -179,15 +179,10 @@ public class Customer {
 
     //RICH CUSTOMER FUNCTIONS ################################
 
-    public void makeSecurity(double cash){
-        if(cash > 1000){
-            this.security = new Security(cash);
-            this.accounts.add(this.saving);
-        }
+    public void makeSecurityAccount(){
+        this.security = new Security(1000);
+        this.saving.withdraw(1000);
+        this.accounts.add(this.security);
+        this.hasSecurity = true;
     }
-
-    public void buyStock(){}
-
-    public void sellStock(){}
-
 }
