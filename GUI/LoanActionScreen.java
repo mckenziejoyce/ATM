@@ -10,17 +10,17 @@ import java.awt.event.*;
 public class LoanActionScreen {
     private JFrame frame;
 
-  public LoanActionScreen(Customer c, String aNumber, String action){
+  public LoanActionScreen(Customer c, Manager m, String aNumber, String action){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c, aNumber, action);
+    placeComponents(panel, c, m, aNumber, action);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c, String aNumber, String action){
+  private void placeComponents(JPanel panel, Customer c, Manager m, String aNumber, String action){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Loans");
     headerMessage.setBounds(5,5,200,25);
@@ -67,7 +67,7 @@ public class LoanActionScreen {
     submitButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new LoanSuccessScreen(c, aNumber, userText.getText(), action);
+        new LoanSuccessScreen(c, m, aNumber, userText.getText(), action);
         }});
     panel.add(submitButton);
 
@@ -76,7 +76,7 @@ public class LoanActionScreen {
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CustomerWelcomeScreen(c);
+        new CustomerWelcomeScreen(c, m);
         }});
     panel.add(backButton);
 
@@ -85,7 +85,7 @@ public class LoanActionScreen {
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen(c);
+        new WelcomeScreen(c, m);
         }});
     panel.add(logoutButton);
 

@@ -11,17 +11,17 @@ import java.awt.event.*;
 public class SecurityAccountConfirmationScreen{
     private JFrame frame;
 
-    public SecurityAccountConfirmationScreen(Customer c, String money){
+    public SecurityAccountConfirmationScreen(Customer c, Manager m, String money){
         frame = new JFrame("MyATM");
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
         frame.add(panel);
-        placeComponents(panel, c, money);
+        placeComponents(panel, c, m, money);
         frame.setVisible(true);
     }
 
-    private void placeComponents(JPanel panel, Customer c, String money){
+    private void placeComponents(JPanel panel, Customer c, Manager m, String money){
         panel.setLayout(null);
         JLabel headerMessage = new JLabel("Open A New Security Account");
         headerMessage.setBounds(5,5,200,25);
@@ -65,7 +65,7 @@ public class SecurityAccountConfirmationScreen{
         confirmButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new StockWelcomeScreen(c);
+                new StockWelcomeScreen(c, m);
             }});
         panel.add(confirmButton);
 

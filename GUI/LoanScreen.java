@@ -11,17 +11,17 @@ import java.awt.event.*;
 public class LoanScreen {
     private JFrame frame;
 
-    public LoanScreen(Customer c){
+    public LoanScreen(Customer c, Manager m){
         frame = new JFrame("MyATM");
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         JPanel panel = new JPanel();
         frame.add(panel);
-        placeComponents(panel, c);
+        placeComponents(panel, c, m);
         frame.setVisible(true);
     }
 
-    private void placeComponents(JPanel panel, Customer c){
+    private void placeComponents(JPanel panel, Customer c, Manager m){
         int x = 5;
         int y = 5;
         panel.setLayout(null);
@@ -37,7 +37,7 @@ public class LoanScreen {
         applyButton.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new LoanAccountScreen(c, "Apply");
+            new LoanAccountScreen(c, m, "Apply");
             }});
         panel.add(applyButton);
     
@@ -47,7 +47,7 @@ public class LoanScreen {
         payButton.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new LoanAccountScreen(c, "Pay");
+            new LoanAccountScreen(c, m, "Pay");
             }});
         payButton.setBounds(10, 100, 200, 30);
         panel.add(payButton);
@@ -56,7 +56,7 @@ public class LoanScreen {
         statusButton.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new LoanStatusScreen(c);
+            new LoanStatusScreen(c, m);
             }});
         statusButton.setBounds(10, 130, 200, 30);
         panel.add(statusButton);
@@ -66,7 +66,7 @@ public class LoanScreen {
         backButton.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new AccountManagementScreen(c);
+            new AccountManagementScreen(c, m);
             }});
         panel.add(backButton);
     
@@ -75,7 +75,7 @@ public class LoanScreen {
         logoutButton.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new WelcomeScreen(c);
+            new WelcomeScreen(c, m);
             }});
         panel.add(logoutButton);
     

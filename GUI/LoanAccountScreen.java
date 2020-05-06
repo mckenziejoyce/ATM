@@ -11,17 +11,17 @@ import java.util.ArrayList;
 public class LoanAccountScreen {
     private JFrame frame;
 
-    public LoanAccountScreen(Customer c, String action){
+    public LoanAccountScreen(Customer c, Manager m, String action){
         frame = new JFrame("MyATM");
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         JPanel panel = new JPanel();
         frame.add(panel);
-        placeComponents(panel, c, action);
+        placeComponents(panel, c, m, action);
         frame.setVisible(true);
     }
 
-    private void placeComponents(JPanel panel, Customer c, String action){
+    private void placeComponents(JPanel panel, Customer c, Manager m, String action){
         panel.setLayout(null);
         JLabel headerMessage = new JLabel("Loans");
         headerMessage.setBounds(5,5,200,25);
@@ -88,7 +88,7 @@ public class LoanAccountScreen {
           boolean cont = accNum <= acc.size();
           if(cont){
             frame.dispose();
-            new LoanActionScreen(c, loanAccount, action);
+            new LoanActionScreen(c, m, loanAccount, action);
           }
           else{
             userText.setText("");
@@ -102,7 +102,7 @@ public class LoanAccountScreen {
         backButton.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new TransactionsScreen(c);
+            new TransactionsScreen(c, m);
             }});
         panel.add(backButton);
 
@@ -111,7 +111,7 @@ public class LoanAccountScreen {
         logoutButton.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new WelcomeScreen(c);
+            new WelcomeScreen(c, m);
             }});
         panel.add(logoutButton);
 

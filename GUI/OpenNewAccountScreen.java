@@ -10,17 +10,17 @@ import java.awt.event.*;
 public class OpenNewAccountScreen{
   private JFrame frame;
 
-  public OpenNewAccountScreen(Customer c){
+  public OpenNewAccountScreen(Customer c, Manager m){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c);
+    placeComponents(panel, c, m);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c){
+  private void placeComponents(JPanel panel, Customer c, Manager m){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Open a New Account");
     headerMessage.setBounds(5,5,200,25);
@@ -35,7 +35,7 @@ public class OpenNewAccountScreen{
     withdrawButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new NewAccountConfirmationScreen("c", c);
+        new NewAccountConfirmationScreen("c", c, m);
         }});
     panel.add(withdrawButton);
 
@@ -44,7 +44,7 @@ public class OpenNewAccountScreen{
     depositButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new NewAccountConfirmationScreen("s", c);
+        new NewAccountConfirmationScreen("s", c, m);
         }});
     panel.add(depositButton);
 
@@ -54,7 +54,7 @@ public class OpenNewAccountScreen{
       securityButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new NewAccountConfirmationScreen("sc", c);
+        new NewAccountConfirmationScreen("sc", c, m);
         }});
       panel.add(securityButton);
     }
@@ -64,7 +64,7 @@ public class OpenNewAccountScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new AccountManagementScreen(c);
+        new AccountManagementScreen(c, m);
         }});
     panel.add(backButton);
 
@@ -73,7 +73,7 @@ public class OpenNewAccountScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen(c);
+        new WelcomeScreen(c, m);
         }});
     panel.add(logoutButton);
   }

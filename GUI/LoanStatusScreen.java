@@ -11,17 +11,17 @@ import java.awt.event.*;
 public class LoanStatusScreen {
     private JFrame frame;
 
-    public LoanStatusScreen(Customer c){
+    public LoanStatusScreen(Customer c, Manager m){
         frame = new JFrame("MyATM");
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         JPanel panel = new JPanel();
         frame.add(panel);
-        placeComponents(panel, c);
+        placeComponents(panel, c, m);
         frame.setVisible(true);
     }
 
-    private void placeComponents(JPanel panel, Customer c){
+    private void placeComponents(JPanel panel, Customer c, Manager m){
         panel.setLayout(null);
         JLabel headerMessage = new JLabel("Loan Status");
         headerMessage.setBounds(5,5,200,25);
@@ -43,7 +43,7 @@ public class LoanStatusScreen {
         backButton.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new LoanScreen(c);
+            new LoanScreen(c, m);
             }});
         panel.add(backButton);
 
@@ -52,7 +52,7 @@ public class LoanStatusScreen {
         logoutButton.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new WelcomeScreen(c);
+            new WelcomeScreen(c, m);
             }});
         panel.add(logoutButton);
     

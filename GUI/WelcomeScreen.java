@@ -10,17 +10,17 @@ import java.awt.event.*;
 public class WelcomeScreen{
   private JFrame frame;
 
-  public WelcomeScreen(Customer c){
+  public WelcomeScreen(Customer c, Manager m){
     frame = new JFrame("MyATM");
     frame.setSize(350, 200);
     frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c);
+    placeComponents(panel, c, m);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c){
+  private void placeComponents(JPanel panel, Customer c, Manager m){
     panel.setLayout(null);
     JLabel welcomeMessage = new JLabel("Welcome to MyATM app!");
     welcomeMessage.setBounds(5,5,200,25);
@@ -35,7 +35,7 @@ public class WelcomeScreen{
     customerButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CustomerWelcomeScreen(c);
+        new CustomerWelcomeScreen(c, m);
         }});
     panel.add(customerButton);
 

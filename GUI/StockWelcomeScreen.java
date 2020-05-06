@@ -10,18 +10,18 @@ import java.awt.event.*;
 public class StockWelcomeScreen{
     private JFrame frame;
 
-    public  StockWelcomeScreen(Customer c){
+    public  StockWelcomeScreen(Customer c, Manager m){
         frame = new JFrame("MyATM");
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //setUpPage();
         JPanel panel = new JPanel();
         frame.add(panel);
-        placeComponents(panel, c);
+        placeComponents(panel, c, m);
         frame.setVisible(true);
     }
 
-    private void placeComponents(JPanel panel, Customer c){
+    private void placeComponents(JPanel panel, Customer c, Manager m){
 
 
         panel.setLayout(null);
@@ -38,7 +38,7 @@ public class StockWelcomeScreen{
         transactionsButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new TransactionsScreen(c);
+                new TransactionsScreen(c, m);
             }});
         panel.add(transactionsButton);
 
@@ -47,7 +47,7 @@ public class StockWelcomeScreen{
         accManButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new ViewProfit(c);
+                new ViewProfit(c, m);
             }});
         panel.add(accManButton);
 
@@ -57,7 +57,7 @@ public class StockWelcomeScreen{
         loanButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new ViewOpenPositionScreen(c);
+                new ViewOpenPositionScreen(c, m);
             }});
         panel.add(loanButton);
         y+=30;
@@ -67,7 +67,7 @@ public class StockWelcomeScreen{
         stocksButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new StockWelcomeScreen(c);
+                new StockWelcomeScreen(c, m);
             }});
         panel.add(stocksButton);
         y+=30;
@@ -77,7 +77,7 @@ public class StockWelcomeScreen{
         manageButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new CurrencySettingsScreen(c);
+                new CurrencySettingsScreen(c, m);
             }});
         panel.add(manageButton);
         y+=30;
@@ -87,7 +87,7 @@ public class StockWelcomeScreen{
         currecyButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new CurrencySettingsScreen(c);
+                new CurrencySettingsScreen(c, m);
             }});
         panel.add(currecyButton);
 
@@ -96,7 +96,7 @@ public class StockWelcomeScreen{
         backButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new CustomerWelcomeScreen(c);
+                new CustomerWelcomeScreen(c, m);
             }});
         panel.add(backButton);
 
@@ -105,7 +105,7 @@ public class StockWelcomeScreen{
         logoutButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                new WelcomeScreen(c);
+                new WelcomeScreen(c, m);
             }});
         panel.add(logoutButton);
 

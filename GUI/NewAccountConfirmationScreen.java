@@ -11,17 +11,17 @@ import java.awt.event.*;
 public class NewAccountConfirmationScreen{
   private JFrame frame;
 
-  public NewAccountConfirmationScreen(String account, Customer c){
+  public NewAccountConfirmationScreen(String account, Customer c, Manager m){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, account, c);
+    placeComponents(panel, account, c, m);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, String account, Customer c){
+  private void placeComponents(JPanel panel, String account, Customer c, Manager m){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Open a New Account");
     headerMessage.setBounds(5,5,200,25);
@@ -82,7 +82,7 @@ public class NewAccountConfirmationScreen{
     confirmButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new AccountManagementScreen(c);
+        new AccountManagementScreen(c, m);
         }});
     panel.add(confirmButton);
 
@@ -91,7 +91,7 @@ public class NewAccountConfirmationScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new OpenNewAccountScreen(c);
+        new OpenNewAccountScreen(c, m);
         }});
     panel.add(backButton);
 

@@ -13,17 +13,17 @@ import java.util.ArrayList;
 public class TransactionsMoneyScreen{
   private JFrame frame;
 
-  public TransactionsMoneyScreen(Customer c, String aNumber, String action){
+  public TransactionsMoneyScreen(Customer c, String aNumber, String action, Manager m){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c, aNumber, action);
+    placeComponents(panel, c, aNumber, action, m);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c, String aNumber, String action){
+  private void placeComponents(JPanel panel, Customer c, String aNumber, String action, Manager m){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Transactions");
     headerMessage.setBounds(5,5,200,25);
@@ -74,7 +74,7 @@ public class TransactionsMoneyScreen{
         if(action.compareTo("Withdraw")==0){
           if(curAccount.getBalance()-moneyNum >= 0){
             frame.dispose();
-            new TransactionsSuccessScreen(c, aNumber, money, action);
+            new TransactionsSuccessScreen(c, m, aNumber, money, action);
           }
           else{
             userText.setText("");
@@ -82,7 +82,7 @@ public class TransactionsMoneyScreen{
           }
         }
         else{
-          new TransactionsSuccessScreen(c, aNumber, money, action);
+          new TransactionsSuccessScreen(c, m, aNumber, money, action);
         }
         }});
     panel.add(submitButton);
@@ -92,7 +92,7 @@ public class TransactionsMoneyScreen{
     backButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CustomerWelcomeScreen(c);
+        new CustomerWelcomeScreen(c, m);
         }});
     panel.add(backButton);
 
@@ -101,7 +101,7 @@ public class TransactionsMoneyScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new WelcomeScreen(c);
+        new WelcomeScreen(c, m);
         }});
     panel.add(logoutButton);
 

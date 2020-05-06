@@ -10,17 +10,17 @@ import java.awt.event.*;
 public class NewAccountSuccessScreen{
   private JFrame frame;
 
-  public NewAccountSuccessScreen(Customer c){
+  public NewAccountSuccessScreen(Customer c, Manager m){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c);
+    placeComponents(panel, c, m);
     frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c){
+  private void placeComponents(JPanel panel, Customer c, Manager m){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Open a New Account");
     headerMessage.setBounds(5,5,200,25);
@@ -67,7 +67,7 @@ public class NewAccountSuccessScreen{
     yesButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new CustomerWelcomeScreen(c);
+        new CustomerWelcomeScreen(c, m);
         }});
     panel.add(yesButton);
 
