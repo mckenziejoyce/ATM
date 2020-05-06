@@ -44,6 +44,10 @@ public class Customer {
         return checking;
     }
 
+    public Security getSecurity(){
+        return security;
+    }
+
     public String getCurrency(){
         return cur;
     }
@@ -182,9 +186,9 @@ public class Customer {
     //RICH CUSTOMER FUNCTIONS ################################
 
     //Adds a security accuount to the list
-    public void makeSecurityAccount(){
-        this.security = new Security(1000);
-        this.saving.withdraw(1000);
+    public void makeSecurityAccount(int amount){
+        this.security = new Security(amount);
+        this.saving.withdraw(amount);
         this.accounts.add(this.security);
         this.hasSecurity = true;
     }
