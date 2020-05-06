@@ -13,7 +13,7 @@ In Command Type in
 
 ```
 javac javac GUI/MyATM.java
-java java GUI.MyATM
+java GUI.MyATM
 ```
 
 ## How the program starts
