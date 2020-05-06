@@ -7,7 +7,7 @@ public class Customer {
     protected Checking checking;
     protected Saving saving;
     protected Security security;
-    protected ArrayList<String> transactions;
+    protected ArrayList<Transactions> transactions;
     protected ArrayList<Account> accounts;  
     protected double realized; //Realized profit
     protected double unrealized; //Unrealized profit
@@ -17,7 +17,7 @@ public class Customer {
 
     public Customer(String n){
         name = n;
-        transactions = new ArrayList<String>();
+        transactions = new ArrayList<Transactions>();
         realized = 0;
         unrealized = 0;
         accounts = new ArrayList<Account>();
@@ -91,12 +91,12 @@ public class Customer {
         if(account.equals("s")){
             this.saving.withdraw(amount);
             this.realized -= amount;
-            this.transactions.add("Savings -" + amount);
+            this.transactions.add(new Transactions("Savings -" + amount, amount));
         }
         else if(account.equals("c")){
             this.checking.withdraw(amount);
             this.realized -= amount;
-            this.transactions.add("Checking -" + amount);
+            this.transactions.add(new Transactions("Checking -" + amount, amount));
         }
     }
 
@@ -106,12 +106,12 @@ public class Customer {
         if(account.equals("s")){
             this.saving.deposit(amount);
             this.realized += amount;
-            this.transactions.add("Savings +" + amount);
+            this.transactions.add(new Transactions("Savings +" + amount, amount));
         }
         else if(account.equals("c")){
             this.checking.deposit(amount);
             this.realized += amount;
-            this.transactions.add("Checking +" + amount);
+            this.transactions.add(new Transactions("Checking +" + amount, amount));
         }
     }
 
@@ -128,7 +128,7 @@ public class Customer {
     }
 
     //Returns a string of transactions
-    public ArrayList<String> getTransactions(){
+    public ArrayList<Transactions> getTransactions(){
         return transactions;
     }
 
