@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class CloseAccountScreen{
   private JFrame frame;
@@ -86,8 +87,17 @@ public class CloseAccountScreen{
       public void actionPerformed(ActionEvent e){
         String closedAccount = userText.getText();
         int accNum = Integer.parseInt(closedAccount);
-        frame.dispose();
-        new CloseAccConfirmScreen(accNum, c);
+        ArrayList<Account> acc = c.getAccounts();
+        boolean cont = accNum <= acc.size();
+        if(cont){
+          Account curAccount = c.getAccounts().get(accNum-1);
+          frame.dispose();
+          new CloseAccConfirmScreen(accNum, c);
+        }
+        else{
+          userText.setText("");
+          new InvalidEntryPopUp("That account does not exist");
+        }
         }});
     panel.add(submitButton);
 

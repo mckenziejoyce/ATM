@@ -1,5 +1,6 @@
 package GUI;
 import OOP.*;
+import java.util.ArrayList;
 
 import java.awt.event.*;
 import javax.swing.JButton;
@@ -19,22 +20,22 @@ public class LoanSuccessScreen {
         placeComponents(panel, c, aNumber, money, action);
         frame.setVisible(true);
       }
-    
+
       private void placeComponents(JPanel panel, Customer c, String aNumber, String money, String action){
         panel.setLayout(null);
         JLabel headerMessage = new JLabel("Loans");
         headerMessage.setBounds(5,5,200,25);
         panel.add(headerMessage);
-    
+
         // Figure out how to pull this information
         JLabel lineOne = new JLabel("Your loan was a success!");
         lineOne.setBounds(5,25,300,25);
         panel.add(lineOne);
-    
+
         JLabel lineTwo = new JLabel("Your current account status is:");
         lineTwo.setBounds(5,45,300,25);
         panel.add(lineTwo);
-    
+
         JLabel accType = new JLabel("Account type:");
         JLabel accNum = new JLabel("Account number:");
         JLabel accBalance = new JLabel("Account balance:");
@@ -44,9 +45,9 @@ public class LoanSuccessScreen {
         panel.add(accType);
         panel.add(accNum);
         panel.add(accBalance);
-    
+
         Account curAccount = c.getAccounts().get(Integer.parseInt(aNumber)-1);
-    
+
         if(action.equals("Pay")){
             curAccount.withdraw(Double.valueOf(money));
             c.payLoan(Double.valueOf(money));
@@ -57,7 +58,7 @@ public class LoanSuccessScreen {
             c.applyLoan(Double.valueOf(money), 0.12);
             c.getTransactions().add(new Transactions(curAccount.getType() + " loan apply: +" + money, Double.valueOf(money)));
         }
-        
+
         JLabel type = new JLabel(curAccount.getType());
         JLabel num = new JLabel(curAccount.getAccountNumber());
         JLabel balance = new JLabel(Double.toString(curAccount.getBalance()));
@@ -74,12 +75,12 @@ public class LoanSuccessScreen {
         doa.setBounds(30,130, 200, 25);
         panel.add(loanAmount);
         panel.add(doa);
-        
-    
+
+
         JLabel lineFour = new JLabel("Would you like to continue using the bank app?");
         lineFour.setBounds(5,160,300,25);
         panel.add(lineFour);
-    
+
         JButton yesButton = new JButton("Yes");
         yesButton.setBounds(10, 195, 200, 25);
         yesButton.addActionListener(new ActionListener(){
@@ -88,7 +89,7 @@ public class LoanSuccessScreen {
             new CustomerWelcomeScreen(c);
             }});
         panel.add(yesButton);
-    
+
         JButton noButton = new JButton("No");
         noButton.setBounds(10, 225, 200, 25);
         yesButton.addActionListener(new ActionListener(){
@@ -96,12 +97,12 @@ public class LoanSuccessScreen {
             frame.dispose();
             }});
         panel.add(noButton);
-    
-    
-    
+
+
+
       }
       public void setVisible(boolean bool){
         frame.setVisible(bool);
       }
-    
+
 }

@@ -8,13 +8,14 @@ public class Customer {
     protected Saving saving;
     protected Security security;
     protected ArrayList<Transactions> transactions;
-    protected ArrayList<Account> accounts;  
+    protected ArrayList<Account> accounts;
     protected double realized; //Realized profit
     protected double unrealized; //Unrealized profit
     protected Loan loan; //The loan still left for the customer to pay
-    protected String cur; //Currency 
+    protected String cur; //Currency
     protected boolean rich; //True if the customer is rich
     protected boolean mainSaving; //True if created main savings account
+    protected boolean hasSecurity;
 
     public Customer(String n){
         name = n;
@@ -24,6 +25,7 @@ public class Customer {
         accounts = new ArrayList<Account>();
         cur = "USD";
         mainSaving = false;
+        hasSecurity = false;
     }
 
     public String getName(){
@@ -129,7 +131,7 @@ public class Customer {
         this.loan = new Loan(amount, interest);
     }
 
-    //Paying a portion or the whole loan. If the 
+    //Paying a portion or the whole loan. If the
     //string is s then the money comes out of the
     //Savings account while c is checking account
     public void payLoan(double amount){
@@ -151,7 +153,7 @@ public class Customer {
                 }
             }
         }
-        
+
     }
 
     //Converts the the first currency value to the second

@@ -1,12 +1,12 @@
 package GUI;
 import OOP.*;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class LoanAccountScreen {
     private JFrame frame;
@@ -82,9 +82,19 @@ public class LoanAccountScreen {
         submitButton.setBounds(40, y, 100, 25);
         submitButton.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
+          String loanAccount = userText.getText();
+          int accNum = Integer.parseInt(loanAccount);
+          ArrayList<Account> acc = c.getAccounts();
+          boolean cont = accNum <= acc.size();
+          if(cont){
             frame.dispose();
-            new LoanActionScreen(c, userText.getText(), action);
-            }});
+            new LoanActionScreen(c, loanAccount, action);
+          }
+          else{
+            userText.setText("");
+            new InvalidEntryPopUp("That account does not exist");
+          }
+        }});
         panel.add(submitButton);
 
         JButton backButton = new JButton("Back");
@@ -106,8 +116,9 @@ public class LoanAccountScreen {
         panel.add(logoutButton);
 
     }
+
     public void setVisible(boolean bool){
         frame.setVisible(bool);
     }
-    
+
 }
