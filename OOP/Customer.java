@@ -72,7 +72,7 @@ public class Customer {
 
     //Customer creates a Savings account
     public void makeSavingAccount(double cash){
-        if(mainSaving = false){
+        if(!mainSaving){
             mainSaving = true;
             this.saving = new Saving(cash, true);
             this.accounts.add(this.saving);
