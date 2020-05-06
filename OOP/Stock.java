@@ -13,8 +13,10 @@ public class Stock {
     public String getName(){return name;}
     public boolean available(){return available; }
 
-    public void setPrice(int price){ this.price = price;}
+    public void setPrice(double price){ this.price = price;}
     public void setAvailable(boolean available){ this.available = available;}
+
+
 
 
 

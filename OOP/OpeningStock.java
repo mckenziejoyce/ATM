@@ -3,6 +3,14 @@ package OOP;
 public class OpeningStock extends Stock {
     protected int share;
 
+    public int getShare(){
+        return share;
+    }
+
+    public void setShare(int newShare){
+        this.share = newShare;
+    }
+
     public OpeningStock(String n, double p, int share) {
         super(n, p);
         share = share;
@@ -16,5 +24,6 @@ public class OpeningStock extends Stock {
         this.price = (this.share * this.price - current_price * share)/(this.share-share);
         this.share -= share;
     }
+
 
 }
