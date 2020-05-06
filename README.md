@@ -4,7 +4,7 @@
 
 ## Authors - Group Number 17 
 * Anthony Vargas - U58026559 
-* McKenzie Joyce
+* McKenzie Joyce - U41215872
 * Qing Zhao
 
 ## How to run the program
@@ -12,8 +12,8 @@
 In Command Type in
 
 ```
-javac MyATM.java
-java MyATM
+javac javac GUI/MyATM.java
+java GUI.MyATM
 ```
 
 ## How the program starts
