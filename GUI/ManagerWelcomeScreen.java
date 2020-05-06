@@ -44,8 +44,8 @@ public class ManagerWelcomeScreen{
     accManButton.setBounds(10, 100, 250, 30);
     accManButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
-        //frame.dispose();
-
+        frame.dispose();
+        new CheckOnCustomerSelection(m);
         }});
     panel.add(accManButton);
 
