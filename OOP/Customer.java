@@ -14,6 +14,7 @@ public class Customer {
     protected Loan loan; //The loan still left for the customer to pay
     protected String cur; //Currency 
     protected boolean rich; //True if the customer is rich
+    protected boolean mainSaving; //True if created main savings account
 
     public Customer(String n){
         name = n;
@@ -22,6 +23,7 @@ public class Customer {
         unrealized = 0;
         accounts = new ArrayList<Account>();
         cur = "USD";
+        mainSaving = false;
     }
 
     public String getName(){
@@ -70,8 +72,15 @@ public class Customer {
 
     //Customer creates a Savings account
     public void makeSavingAccount(double cash){
-        this.saving = new Saving(cash);
-        this.accounts.add(this.saving);
+        if(mainSaving = false){
+            mainSaving = true;
+            this.saving = new Saving(cash, true);
+            this.accounts.add(this.saving);
+        }
+        else{
+            this.saving = new Saving(cash, false);
+            this.accounts.add(this.saving);
+        }
     }
 
     //Customer creates a Checkings account
@@ -137,7 +146,9 @@ public class Customer {
         for(int i=0; i< this.accounts.size(); i++){
             Account acc = this.accounts.get(i);
             if(acc.getType().equals("Savings") && acc.getBalance() >= 5000){
-                this.rich = true;
+                if(((Saving)acc).isMain()){
+                    this.rich = true;
+                }
             }
         }
         
