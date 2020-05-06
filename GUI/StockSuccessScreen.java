@@ -36,7 +36,7 @@ public class StockSuccessScreen{
     ArrayList<OpeningStock> open = sec.getOpening();
 
     if(action.equals("Buy")){
-        JLabel lineTwo = new JLabel("Your Stock that you purchased:");
+        JLabel lineTwo = new JLabel("Your Stock that you purchased " + shNumber + " share(s) of : ");
         lineTwo.setBounds(5,45,300,25);
         panel.add(lineTwo);
 
@@ -52,7 +52,7 @@ public class StockSuccessScreen{
         panel.add(sBalance);
     }
     else if(action.equals("Buy")){
-        JLabel lineTwo = new JLabel("Your Stock that you sold:");
+        JLabel lineTwo = new JLabel("Your Stock that you sold " + shNumber + " share(s) of : ");
         lineTwo.setBounds(5,45,300,25);
         panel.add(lineTwo);
 
