@@ -60,4 +60,4 @@ they were created and what functions they serve.
 ## Authors - Group Number 2
 * Anthony Vargas U58026559
 * McKenzie Joyce U41215872
-* Qing Zhao
+* Qing Zhao U79705507
