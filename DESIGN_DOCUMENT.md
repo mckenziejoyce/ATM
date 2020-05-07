@@ -26,8 +26,7 @@ We have implemented all the classes and methods in OOP, but fails to debug and r
 * `Close Account`: Customers could close accounts. Close security account is different, customers are asked to sell all opening stocks before closing security account. 
 * `Check account information`: Display all information for all accounts of the customer.
 * `Check transaction history`: Daily transaction history.
-* `Apply for loans / Check loans/ Pay back loans`: Customers could apply for loans and the money would be transferred into their account of choice. They could pay the loans partially, and could check information (apply date, unpaid loan, total value). We also add methods that support an “approve loans” process.
-* `Apply for loans / Check loans/ Pay back loans`: Customers could apply for loans and the money would be transferred into their account of choice. They could pay the loans partially, and could check information (apply date, unpaid loan, total value). We also add methods that support an “approve loans” process.
+* `Apply for loans/Check loans/Pay back loans`: Customers could apply for loans and the money would be transferred into their account of choice. They could pay the loans partially, and could check information (apply date, unpaid loan, total value). We also add methods that support an “approve loans” process.
 * `Currency Settings`: We have three different currencies, the default one is USD. All the values are recorded in USD, and would be converted to display if needed.
 
 ### Supporting functions
