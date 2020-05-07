@@ -48,9 +48,6 @@ public class ManagerIncome {
         }
         y+= 20;
 
-
-        // Figure out how to pull and display account info
-
         JLabel lineThree = new JLabel("Would you like to continue using the bank app?");
         lineThree.setBounds(5,y,300,25);
         panel.add(lineThree);
