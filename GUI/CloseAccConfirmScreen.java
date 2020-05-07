@@ -51,9 +51,9 @@ public class CloseAccConfirmScreen{
     JLabel type = new JLabel(curAccount.getType());
     JLabel num = new JLabel(curAccount.getAccountNumber());
     JLabel balance = new JLabel(Double.toString(curAccount.getBalance()));
-    type.setBounds(150,40, 200, 25);
-    num.setBounds(150,55, 200, 25);
-    balance.setBounds(150,70, 200, 25);
+    type.setBounds(150,60, 200, 25);
+    num.setBounds(150,75, 200, 25);
+    balance.setBounds(150,90, 200, 25);
     panel.add(type);
     panel.add(num);
     panel.add(balance);

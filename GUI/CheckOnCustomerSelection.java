@@ -68,13 +68,14 @@ public class CheckOnCustomerSelection{
         int custNum = Integer.parseInt(account);
         boolean cont = (custNum > notlol) && (custNum < 0);
         if(cont){
-          Customer selectedCustomer = customers[custNum-1];
-          frame.dispose();
-          new ManagerCustomerDisplayScreen(selectedCustomer);
-        }
-        else{
           userText.setText("");
           new InvalidEntryPopUp("That account does not exist");
+        }
+        else{
+          Customer selectedCustomer = customers[custNum-1];
+          frame.dispose();
+          new ManagerCustomerDisplayScreen(selectedCustomer,m);
+
         }
         }});
     panel.add(submitButton);

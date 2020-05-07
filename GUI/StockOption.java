@@ -43,8 +43,14 @@ public class StockOption {
     JButton depositButton = new JButton("Sell");
     depositButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
-        frame.dispose();
-        new StockMarketScreen(c, "Sell", m);
+        if(c.getSecurity().getOpening()== null){
+          new InvalidEntryPopUp("You don't have stock to sell.");
+        }
+        else{
+          frame.dispose();
+          new StockMarketScreen(c, "Sell", m);
+        }
+
         }});
     depositButton.setBounds(10, 100, 200, 30);
     panel.add(depositButton);

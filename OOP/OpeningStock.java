@@ -13,7 +13,7 @@ public class OpeningStock extends Stock {
 
     public OpeningStock(String n, double p, int share) {
         super(n, p);
-        share = share;
+        this.share = share;
     }
     public void buyStock(double current_price, int share){
         this.price = (this.share * this.price + current_price * share)/(this.share+share);

@@ -61,4 +61,8 @@ they were created and what functions they serve.
 ## Authors - Group Number 2
 * Anthony Vargas U58026559
 * McKenzie Joyce U41215872
+<<<<<<< HEAD
 * Qing Zhao 
+=======
+* Qing Zhao U79705507
+>>>>>>> 3879f4339f55fa33da4c3babaa53f261c5f2d2ac

@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.*;
 
-public class NewAccountSuccessScreen{
+class NewAccountSuccessScreen{
   private JFrame frame;
 
   public NewAccountSuccessScreen(Customer c, Manager m){

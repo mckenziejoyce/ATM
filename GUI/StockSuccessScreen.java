@@ -51,7 +51,7 @@ public class StockSuccessScreen{
         panel.add(sNum);
         panel.add(sBalance);
     }
-    else if(action.equals("Buy")){
+    else if(action.equals("Sell")){
         JLabel lineTwo = new JLabel("Your Stock that you sold " + shNumber + " share(s) of : ");
         lineTwo.setBounds(5,45,300,25);
         panel.add(lineTwo);

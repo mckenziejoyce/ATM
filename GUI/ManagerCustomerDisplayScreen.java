@@ -12,17 +12,17 @@ import java.util.ArrayList;
 public class ManagerCustomerDisplayScreen{
   private JFrame frame;
 
-  public ManagerCustomerDisplayScreen(Customer c){
+  public ManagerCustomerDisplayScreen(Customer c,Manager m){
       frame = new JFrame("MyATM");
       frame.setSize(500, 300);
       frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
       JPanel panel = new JPanel();
       frame.add(panel);
-      placeComponents(panel, c);
+      placeComponents(panel, c,m);
       frame.setVisible(true);
   }
 
-  private void placeComponents(JPanel panel, Customer c){
+  private void placeComponents(JPanel panel, Customer c, Manager m){
     panel.setLayout(null);
     JLabel headerMessage = new JLabel("Customer Details");
     headerMessage.setBounds(5,5,200,25);
@@ -67,6 +67,24 @@ public class ManagerCustomerDisplayScreen{
       y += 10;
       i++;
     }
-    y += 15;
+
+
+    JButton backButton = new JButton("Back");
+    backButton.setBounds(330, 35, 100, 50);
+    backButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        frame.dispose();
+        new CustomerWelcomeScreen(c, m);
+      }});
+    panel.add(backButton);
+
+    JButton logoutButton = new JButton("Log Out");
+    logoutButton.setBounds(330, 90, 100, 50);
+    logoutButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        frame.dispose();
+        new WelcomeScreen(c, m);
+      }});
+    panel.add(logoutButton);
   }
 }

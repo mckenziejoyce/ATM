@@ -69,30 +69,34 @@ public class StockMarketScreen{
     }
     
     else if(action.equals("Sell")){
-      int numOfOpens = open.size();
-      int i = 0;
-      while(i < numOfOpens){
-        y += 15;
-        JLabel accLabel = new JLabel((i+1) + "Company Name: " + open.get(i).getName());
-        accLabel.setBounds(19,y,200,25);
-        panel.add(accLabel);
-        y += 15;
-        JLabel accType = new JLabel("Sell Price: ");
-        accType.setBounds(30,y, 200, 25);
-        JLabel type = new JLabel("" + stocks.get(i).getPrice());
-        type.setBounds(150,y, 200, 25);
-        panel.add(accType);
-        panel.add(type);
-        y += 15;
-        JLabel accNum = new JLabel("Number of shares:");
-        accNum.setBounds(30,y, 200, 25);
-        panel.add(accNum);
-        JLabel num = new JLabel(""+ open.get(i).getShare());
-        num.setBounds(150,y, 200, 25);
-        panel.add(num);
-        y += 15;
-        i++;
+      if(open!=null){
+        int numOfOpens = open.size();
+        int i = 0;
+        while(i < numOfOpens){
+          y += 15;
+          JLabel accLabel = new JLabel((i+1) + "Company Name: " + open.get(i).getName());
+          accLabel.setBounds(19,y,200,25);
+          panel.add(accLabel);
+          y += 15;
+          JLabel accType = new JLabel("Sell Price: ");
+          accType.setBounds(30,y, 200, 25);
+          JLabel type = new JLabel("" + stocks.get(i).getPrice());
+          type.setBounds(150,y, 200, 25);
+          panel.add(accType);
+          panel.add(type);
+          y += 15;
+          JLabel accNum = new JLabel("Number of shares:");
+          accNum.setBounds(30,y, 200, 25);
+          panel.add(accNum);
+          JLabel num = new JLabel(""+ open.get(i).getShare());
+          num.setBounds(150,y, 200, 25);
+          panel.add(num);
+          y += 15;
+          i++;
+        }
+
       }
+
     }
     
 

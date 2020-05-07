@@ -75,7 +75,6 @@ public class modifyStockSuccessScreen {
         managerButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 frame.dispose();
-                Manager m = new Manager();
                 new manageStocksScreen(m);
             }});
         panel.add(managerButton);
