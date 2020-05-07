@@ -6,7 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-public class TransactionsSuccessScreen{
+class TransactionsSuccessScreen{
   private JFrame frame;
 
   public TransactionsSuccessScreen(Customer c, Manager m, String aNumber, String money, String action){

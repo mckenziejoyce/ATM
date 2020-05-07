@@ -62,7 +62,7 @@ public class CustomerWelcomeScreen{
     panel.add(loanButton);
     y+=30;
 
-    if(c.getRich()){
+    if(c.getRich() || c.gethasSecurity()){
       JButton stocksButton = new JButton("Trade Stocks and Security");
       stocksButton.setBounds(10, y, 200, 30);
       stocksButton.addActionListener(new ActionListener(){

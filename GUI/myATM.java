@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MyATM {
+class MyATM {
   private JFrame frame;
 
   public static void main(String[] args){
@@ -27,6 +27,8 @@ public class MyATM {
     clist[2] = c3;
     m.setCustomers(clist);
     m.setStockMarket(sm);
+    System.out.println(m.getCustomers()[0].getAccounts().get(0).getBalance());
+    System.out.println(m.getCustomers()[0].getAccounts().get(1).getBalance());
     WelcomeScreen firstScreen = new WelcomeScreen(c1, m);
     firstScreen.setVisible(true);
   }

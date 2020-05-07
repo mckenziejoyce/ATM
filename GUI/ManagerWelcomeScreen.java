@@ -11,17 +11,17 @@ import java.awt.event.*;
 public class ManagerWelcomeScreen{
   private JFrame frame;
 
-  public ManagerWelcomeScreen(Customer c, Manager m){
+  public ManagerWelcomeScreen(Manager m){
     frame = new JFrame("MyATM");
     frame.setSize(500, 300);
     frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     //setUpPage();
     JPanel panel = new JPanel();
     frame.add(panel);
-    placeComponents(panel, c, m);
+    placeComponents(panel, m);
     frame.setVisible(true);
   }
-  private void placeComponents(JPanel panel, Customer c, Manager m){
+  private void placeComponents(JPanel panel, Manager m){
     panel.setLayout(null);
     JLabel welcomeMessage = new JLabel("Welcome!");
     welcomeMessage.setBounds(5,5,200,25);
@@ -36,7 +36,7 @@ public class ManagerWelcomeScreen{
     transactionsButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new ManagerTransactionsScreen(c, m);
+        new ManagerTransactionsScreen(m);
         }});
     panel.add(transactionsButton);
 
@@ -54,7 +54,7 @@ public class ManagerWelcomeScreen{
     incomeButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        new ManagerIncome(c,m);
+        new ManagerIncome(m);
         }});
     panel.add(incomeButton);
     
@@ -72,8 +72,8 @@ public class ManagerWelcomeScreen{
     logoutButton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         frame.dispose();
-        Customer n = new Customer("Bob");
-        new WelcomeScreen(n, m);
+        Customer c = m.getCustomers()[0];
+        new WelcomeScreen(c, m);
         }});
     panel.add(logoutButton);
   }

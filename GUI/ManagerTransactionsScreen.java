@@ -12,17 +12,17 @@ import java.util.ArrayList;
 public class ManagerTransactionsScreen {
     private JFrame frame;
 
-    public ManagerTransactionsScreen(Customer c, Manager m){
+    public ManagerTransactionsScreen(Manager m){
         frame = new JFrame("MyATM");
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         JPanel panel = new JPanel();
         frame.add(panel);
-        placeComponents(panel, c, m);
+        placeComponents(panel, m);
         frame.setVisible(true);
     }
 
-    private void placeComponents(JPanel panel, Customer c, Manager m){
+    private void placeComponents(JPanel panel, Manager m){
         panel.setLayout(null);
         JLabel headerMessage = new JLabel("Customer Transactions");
         headerMessage.setBounds(5,5,200,25);
@@ -55,7 +55,7 @@ public class ManagerTransactionsScreen {
         backButton.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new ManagerWelcomeScreen(c, m);
+            new ManagerWelcomeScreen(m);
             }});
         panel.add(backButton);
       }

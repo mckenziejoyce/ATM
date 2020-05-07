@@ -13,17 +13,17 @@ import java.util.Calendar;
 public class ManagerIncome {
     private JFrame frame;
 
-    public ManagerIncome(Customer c, Manager m){
+    public ManagerIncome(Manager m){
         frame = new JFrame("MyATM");
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         JPanel panel = new JPanel();
         frame.add(panel);
-        placeComponents(panel, c, m);
+        placeComponents(panel, m);
         frame.setVisible(true);
     }
 
-    private void placeComponents(JPanel panel,Customer c, Manager m){
+    private void placeComponents(JPanel panel, Manager m){
         panel.setLayout(null);
         JLabel headerMessage = new JLabel("Manager income");
         headerMessage.setBounds(5,5,200,25);
@@ -48,6 +48,9 @@ public class ManagerIncome {
         }
         y+= 20;
 
+
+        // Figure out how to pull and display account info
+
         JLabel lineThree = new JLabel("Would you like to continue using the bank app?");
         lineThree.setBounds(5,y,300,25);
         panel.add(lineThree);
@@ -58,7 +61,7 @@ public class ManagerIncome {
         yesButton.addActionListener(new ActionListener(){
           public void actionPerformed(ActionEvent e){
             frame.dispose();
-            new CustomerWelcomeScreen(c, m);
+            new ManagerWelcomeScreen(m);
             }});
         panel.add(yesButton);
         y+= 35;

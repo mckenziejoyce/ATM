@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class changeStockAvailScreen{
+class changeStockAvailScreen{
     private JFrame frame;
 
     public changeStockAvailScreen(Stock s, Manager m){
