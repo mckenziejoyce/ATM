@@ -5,7 +5,7 @@
 ## Authors - Group Number 17 
 * Anthony Vargas - U58026559 
 * McKenzie Joyce - U41215872
-* Qing Zhao
+* Qing Zhao - U79705507
 
 ## How to run the program
 
