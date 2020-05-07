@@ -26,7 +26,7 @@ public class StockMarket {
 
     public double getPriceByName(String name){
         for(Stock s:stockList){
-            if(s.name == name) return s.getPrice();
+            if(s.name.equals(name)) return s.getPrice();
         }
         return -1;
     }

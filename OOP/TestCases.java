@@ -1,5 +1,6 @@
 package OOP;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestCases {
@@ -14,6 +15,8 @@ public class TestCases {
         c.makeSavingAccount(5000);
         c.makeCheckingAccount(1000);
         c.makeCheckingAccount(20);
+        c.makeSecurityAccount(1000);
+
         return c;
     }
     public Customer customer2() {
@@ -40,6 +43,12 @@ public class TestCases {
         market.getStockList().add(new Stock("stock e",5));
         return market;
     }
+    public ArrayList<OpeningStock> opening(){
+        ArrayList<OpeningStock> open = new ArrayList<OpeningStock>();
+        open.add(new OpeningStock("stock a",10,3));
+        return open;
+    }
+
     public Manager manager(){
         Manager m = new Manager();
         return m;

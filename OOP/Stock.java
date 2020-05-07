@@ -7,6 +7,7 @@ public class Stock {
     public Stock(String n, double p){
         name = n;
         price = p;
+        available = true;
     }
 
     public double getPrice() {return price;}
