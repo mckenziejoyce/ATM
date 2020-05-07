@@ -39,7 +39,7 @@ public class Manager {
     public ArrayList<Transactions> getTransactions(){
         return transactions;
     }
-    
+
     public int numOfStocks(){
         return stockMarket.getStockList().size();
     }

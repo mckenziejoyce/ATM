@@ -3,7 +3,6 @@ package OOP;
 public class Loan extends BankAction{
     private double interest;
     
-
     public Loan(double m, double i){
         super(m);
         interest = i;
