@@ -57,6 +57,15 @@ public class ManagerWelcomeScreen{
         new ManagerIncome(c,m);
         }});
     panel.add(incomeButton);
+    
+    JButton manageButton = new JButton("Manage Stocks");
+    manageButton.setBounds(10, 160, 250, 30);
+    manageButton.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        frame.dispose();
+        new manageStocksScreen(m);
+      }});
+    panel.add(manageButton);
 
     JButton logoutButton = new JButton("Log Out");
     logoutButton.setBounds(250, 100, 250, 30);
