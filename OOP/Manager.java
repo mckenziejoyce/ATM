@@ -39,6 +39,10 @@ public class Manager {
     public ArrayList<Transactions> getTransactions(){
         return transactions;
     }
+    
+    public int numOfStocks(){
+        return stockMarket.getStockList().size();
+    }
    
 
     //Increases all the customer loans after a month passes
