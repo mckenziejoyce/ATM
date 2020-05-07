@@ -49,6 +49,8 @@ public class TransactionsSuccessScreen{
     if(action.equals("Withdraw")){
       curAccount.withdraw(Double.valueOf(money));
       c.getTransactions().add(new Transactions(curAccount.getType() + " withdraw: -" + money + " " + c.getCurrency(), Double.valueOf(money)));
+
+      m.accountFee(3);
     }
     else if(action.equals("Deposit")){
       curAccount.deposit(Double.valueOf(money));

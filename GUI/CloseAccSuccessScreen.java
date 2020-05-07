@@ -31,6 +31,9 @@ public class CloseAccSuccessScreen{
     lineOne.setBounds(5,25,300,25);
     panel.add(lineOne);
 
+    m.accountFee(5); //fee to manager for closing account
+    m.getTransactions().add(new Transactions(c.getName() + " closed an account: +5"));
+
     JLabel lineTwo = new JLabel("Closed Account Information:");
     lineTwo.setBounds(5,45,300,25);
     panel.add(lineTwo);

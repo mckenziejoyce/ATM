@@ -46,7 +46,7 @@ public class WelcomeScreen{
       public void actionPerformed(ActionEvent e){
         frame.dispose();
         Manager m = new Manager();
-        new ManagerWelcomeScreen(m);
+        new ManagerWelcomeScreen(c,m);
         }});
     panel.add(managerButton);
 

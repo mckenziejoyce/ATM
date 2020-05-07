@@ -5,10 +5,12 @@ public class Manager {
     private Customer[] customers;
     private double money;
     private StockMarket stockMarket;
+    private ArrayList<Transactions> transactions;
 
 
     public Manager(){
         money = 0;
+        transactions = new ArrayList<Transactions>();
     }
 
     //Prints out the transactions of all the customers
@@ -32,7 +34,11 @@ public class Manager {
     
     public void setStockMarket(StockMarket sm){
         stockMarket = sm;
-    };
+    }
+
+    public ArrayList<Transactions> getTransactions(){
+        return transactions;
+    }
    
 
     //Increases all the customer loans after a month passes

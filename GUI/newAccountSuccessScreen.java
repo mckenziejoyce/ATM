@@ -35,6 +35,10 @@ public class NewAccountSuccessScreen{
     lineTwo.setBounds(5,45,300,25);
     panel.add(lineTwo);
 
+    m.accountFee(5);
+    m.getTransactions().add(new Transactions(c.getName() + " opened an account: +5"));
+    
+
     JLabel accType = new JLabel("Account type:");
     JLabel accNum = new JLabel("Account number:");
     JLabel accBalance = new JLabel("Account balance:");

@@ -52,6 +52,9 @@ public class LoanSuccessScreen {
             curAccount.withdraw(Double.valueOf(money));
             c.payLoan(Double.valueOf(money));
             c.getTransactions().add(new Transactions(curAccount.getType() + " loan payment: -" + money, Double.valueOf(money)));
+
+            m.accountFee(Double.valueOf(money));
+            m.getTransactions().add(new Transactions(c.getName() + " paid portion of the loan +" + money));
         }
         else if(action.equals("Apply")){
             curAccount.deposit(Double.valueOf(money));
