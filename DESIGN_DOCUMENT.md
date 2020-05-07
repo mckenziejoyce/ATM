@@ -1,4 +1,40 @@
 # ATM
+# User Interface Functions
+
+Following is a list of the user interface functions we have implemented.
+
+## After Demo We Improved These Parts
+We have implemented all the classes and methods in OOP, but fails to debug and run the GUI during demo. 
+
+### Manager Side
+* `Manage Stock`: It allows the manager to manage stock information in the market. The manager could change price/availability of the stocks currently listing in the market, and they also could add a new stock to the market. Error checking: cannot add same stock names; price cannot be lower or equal to 0.
+ * `Manager Daily Income`: It allows the manager to check the total daily income, which includes loan interest and account fee.
+ * `Approve Loan`: Manager is given a list of loans needs to be approved, only the “rich” ones will get approved. (We still do not have GUI for this).
+
+### Customer Side
+ * `Transfer Money`: Allow customers to transfer money between their own accounts. Also add this part to transaction record. 
+ * `Stock Trade`: Fixed NullPointerException. Allows the rich customers to set up a security account and buy/sell stocks. Also support view profit(realized/unrealized), view opening stocks.
+
+## Other functionality showed during demo
+### Manager Side
+* `View Customer Transactions`: Allows the manager to view the daily transaction record. 
+* `Check on Customer`: It allows the manager to check the account information of any customer he/she has.
+* `Loan interest auto check`: Although it is not shown in the GUI, we have a function to check date, and interest will increase each month.
+
+### Customer Side
+* `Open Account`: Each customer is allowed to have as many accounts as they want. They will be charged a fee when opening account. The first savings account created will become main savings account that is linked to security account to judge whether they qualify for stock trade. Only qualified customer will see the open security account option.
+* `Close Account`: Customers could close accounts. Close security account is different, customers are asked to sell all opening stocks before closing security account. 
+* `Check account information`: Display all information for all accounts of the customer.
+* `Check transaction history`: Daily transaction history.
+* `Apply for loans / Check loans/ Pay back loans`: Customers could apply for loans and the money would be transferred into their account of choice. They could pay the loans partially, and could check information (apply date, unpaid loan, total value). We also add methods that support an “approve loans” process.
+* `Apply for loans / Check loans/ Pay back loans`: Customers could apply for loans and the money would be transferred into their account of choice. They could pay the loans partially, and could check information (apply date, unpaid loan, total value). We also add methods that support an “approve loans” process.
+* `Currency Settings`: We have three different currencies, the default one is USD. All the values are recorded in USD, and would be converted to display if needed.
+
+### Supporting functions
+* `Error Checking`: We implemented a pop-up window class in GUI, whenever the user makes invalid moves, we call the pop-up window, clean up all the input text boxes, and will not proceed to next page until valid. 
+* `Data Saving`: We tried to implement a JDBC connection to mysql database to record all the data, but fail to change the configurations to make it work. You could look at the data_driver class to have a brief impression. We plan to update information each time a customer/manager log in/log off and open/close the app.
+* `Test Case`: Right now the database is not working, so we implemented several test data. 
+
 # Explanation of Classes
 
 Following is a list of classes that were used and an explanation of why
