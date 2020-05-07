@@ -44,6 +44,10 @@ public class Customer {
         return checking;
     }
 
+    public boolean gethasSecurity(){
+        return hasSecurity;
+    }
+
     public Security getSecurity(){
         for(int i =0; i<this.getAccounts().size(); i++){
             if(this.getAccounts().get(i).getType().equals("Security")){

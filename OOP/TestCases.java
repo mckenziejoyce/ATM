@@ -15,8 +15,7 @@ public class TestCases {
         c.makeSavingAccount(5000);
         c.makeCheckingAccount(1000);
         c.makeCheckingAccount(20);
-        c.makeSecurityAccount(1000);
-
+        c.makeSecurityAccount(2000);
         return c;
     }
     public Customer customer2() {

@@ -19,6 +19,7 @@ public class Security extends Account{
         unrealProfit = 0;
         totalProfit = 0;
         principle = money;
+        opening = new ArrayList<>();
     }
     public ArrayList<OpeningStock> getOpening(){ return opening; }
 
@@ -57,6 +58,7 @@ public class Security extends Account{
     }
 
     public boolean hasStock(String name){
+        if(opening ==null) return false;
         for (OpeningStock s:opening){
             if (s.name == name) return true;
         }

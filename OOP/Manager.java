@@ -5,8 +5,7 @@ public class Manager {
     private Customer[] customers;
     private double money;
     private StockMarket stockMarket;
-    private ArrayList<Transactions> transactions; //Transactions for manager's income
-    private ArrayList<Loan> loans; //List of loans manager has to approve
+    private ArrayList<Transactions> transactions;
 
 
     public Manager(){
@@ -65,14 +64,4 @@ public class Manager {
       return customers;
     }
 
-    //Manager approves of the loans given to rich customers
-    public void approveLoans(){
-        int len = customers.length;
-
-        for(int i=0; i<len; i++){
-            if(customers[i].getRich()){
-                customers[i].getLoan().approve();
-            }
-        }
-    }
 }
