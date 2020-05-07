@@ -68,7 +68,9 @@ public class TransferSuccess{
     panel.add(accType2);
     panel.add(acccNum);
     panel.add(accBalance2);
-    
+
+    c.getTransactions().add(new Transactions(curAccount1.getType() + " "+ curAccount1.getAccountNumber() + " transferred "));
+    c.getTransactions().add(new Transactions(money + " dollars to " + curAccount2.getType() + " "+ curAccount2.getAccountNumber()));
 
     JLabel lineThree = new JLabel("Would you like to continue using the bank app?");
     lineThree.setBounds(5,y,300,25);
