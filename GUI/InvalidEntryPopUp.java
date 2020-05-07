@@ -21,9 +21,12 @@ public class InvalidEntryPopUp{
 
   }
   public InvalidEntryPopUp(String message){
-    this();
+    frame = new JFrame("MyATM");
+    frame.setSize(300, 150);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     errorMessage = message;
     JPanel panel = new JPanel();
+    frame.add(panel);
     placeComponents(panel);
     frame.setVisible(true);
   }
